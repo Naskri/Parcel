@@ -35,6 +35,7 @@
   "success": {
     "register": "Potwierdź konto na email!",
     "login": "Pomyślnie zalogowano",
-    "dashboard": "Pomyślnie, korzystaj z aplikacji"
+    "dashboard": "Pomyślnie, korzystaj z aplikacji",
+    "pin": "Zmieniono PIN"
   }
 }

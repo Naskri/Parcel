@@ -35,6 +35,7 @@
   "success": {
     "register": "Confirm account on email!",
     "login": "Succesfully logged",
-    "dashboard": "Correct, use the app"
+    "dashboard": "Correct, use the app",
+    "pin": "PIN is changed"
   }
 }
