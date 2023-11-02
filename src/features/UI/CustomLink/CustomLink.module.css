@@ -1,0 +1,15 @@
+.custom-link:link,
+.custom-link:visited {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.custom-link--logo:link,
+.custom-link--logo:visited {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+}

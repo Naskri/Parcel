@@ -1,0 +1,28 @@
+:root {
+  --color-primary: #fb8500;
+  --color-error: #e63946;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-background: #dedede;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: var(--color-background);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
