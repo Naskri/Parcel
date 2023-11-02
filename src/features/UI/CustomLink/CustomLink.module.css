@@ -25,6 +25,23 @@
   font-size: 1rem;
 }
 
+.custom-link--navigation:link,
+.custom-link--navigation:visited {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+.custom-link--navigation span {
+  transition: 0.3s;
+}
+
+.custom-link--navigation:hover span {
+  transform: translateX(1rem);
+}
+
 .custom-link--help:link,
 .custom-link--help:visited,
 .custom-link--navigation:link,

@@ -8,6 +8,7 @@ import { UpdatePIN } from './features/Authentication/Forms/UpdatePIN/UpdatePIN'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { ProtectedRoute } from './features/UI/ProtectedRoute/ProtectedRoute'
+import { Dashboard } from './pages/Dashboard/Dashboard'
 
 export const App = () => {
   return (
@@ -22,7 +23,7 @@ export const App = () => {
             path="dashboard"
             element={
               <ProtectedRoute>
-                <h1>Hi!</h1>
+                <Dashboard />
               </ProtectedRoute>
             }
           />

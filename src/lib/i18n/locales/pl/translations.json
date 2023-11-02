@@ -7,7 +7,7 @@
     "update-pin": "Zmień PIN"
   },
   "layout": {
-    "title": "Twoi eksperci doręczania!"
+    "title": "Eksperci doręczania!"
   },
   "form": {
     "title": "Witaj w Parcel!",
@@ -37,5 +37,13 @@
     "login": "Pomyślnie zalogowano",
     "dashboard": "Pomyślnie, korzystaj z aplikacji",
     "pin": "Zmieniono PIN"
+  },
+  "navigation": {
+    "item1title": "Wyszukiwarka",
+    "item2title": "Statystyki",
+    "item3title": "Przekaż paczki",
+    "item4title": "Próba doręczenia",
+    "item5title": "Modyfikuj punkty adresowe",
+    "logout": "Wyloguj"
   }
 }

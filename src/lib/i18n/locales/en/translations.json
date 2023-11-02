@@ -7,7 +7,7 @@
     "update-pin": "Update PIN"
   },
   "layout": {
-    "title": "Your delivery experts!"
+    "title": "Delivery experts!"
   },
   "form": {
     "title": "Welcome in Parcel!",
@@ -37,5 +37,13 @@
     "login": "Succesfully logged",
     "dashboard": "Correct, use the app",
     "pin": "PIN is changed"
+  },
+  "navigation": {
+    "item1title": "Search",
+    "item2title": "Statistics",
+    "item3title": "Hand over the parcels",
+    "item4title": "Delivery attempted",
+    "item5title": "Modify address points",
+    "logout": "Logout"
   }
 }
