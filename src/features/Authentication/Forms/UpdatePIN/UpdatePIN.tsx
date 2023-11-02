@@ -6,19 +6,17 @@ import styled from './../Form.module.css'
 import { useForm } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { UnlockAppSchema, UnlockAppSchemaType } from './UnlockAppSchema'
+import { UpdatePINSchema, UpdatePINSchemaType } from './UpdatePINSchema'
 
-import { ForgotPIN } from './ForgotPIN/ForgotPIN'
-
-export const UnlockApp = () => {
+export const UpdatePIN = () => {
   const { t } = useTranslation()
 
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<UnlockAppSchemaType>({
-    resolver: zodResolver(UnlockAppSchema),
+  } = useForm<UpdatePINSchemaType>({
+    resolver: zodResolver(UpdatePINSchema),
   })
 
   const submitHandler = () => {}
@@ -32,13 +30,12 @@ export const UnlockApp = () => {
           label="form.pinLabel"
           type={InputTypes.text}
           required
-          error={errors?.pin?.message}
-          {...register('pin')}
+          error={errors?.new_pin?.message}
+          {...register('new_pin')}
         />
 
-        <Button modifier="form">{t('links.auth-login')}</Button>
+        <Button modifier="form">{t('links.update-pin')}</Button>
       </form>
-      <ForgotPIN />
       <div className={styled.form__image}>
         <img src="./../images/delivery.jpg" alt="" />
       </div>

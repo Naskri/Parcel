@@ -8,13 +8,14 @@ export const RegisterSchema = z
     password: z
       .string({ required_error: 'validation.passwordRequired' })
       .min(6, 'validation.passwordMin'),
-    passwordConfirm: z
-      .string({ required_error: 'validation.passwordConfirmRequired' })
-      .min(6, 'validation.passwordMin'),
+    pin: z
+      .string({ required_error: 'validation.pinRequired' })
+      .min(4, 'validation.pinLength')
+      .max(4, 'validation.pinLength'),
   })
-  .refine((data) => data.password === data.passwordConfirm, {
-    message: 'validation.passwordsNotMatch',
-    path: ['passwordConfirm'],
+  .refine((data) => !Number.isNaN(Number(data.pin)), {
+    message: 'validation.pinInvalid',
+    path: ['pin'],
   })
 
 export type RegisterSchemaType = z.infer<typeof RegisterSchema>

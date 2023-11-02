@@ -2,7 +2,8 @@
   "links": {
     "auth-login": "Zaloguj się",
     "auth-register": "Zarejestruj się",
-    "forgot-pin": "Resetuj PIN"
+    "forgot-pin": "Resetuj PIN",
+    "update-pin": "Zmień PIN"
   },
   "layout": {
     "title": "Twoi eksperci doręczania!"
@@ -28,5 +29,8 @@
     "pinRequired": "PIN jest wymagany!",
     "pinLength": "PIN musi mieć 4 cyfry!",
     "pinInvalid": "PIN jest niepoprawny!"
+  },
+  "success": {
+    "register": "Potwierdź konto na email!"
   }
 }

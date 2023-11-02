@@ -2,7 +2,8 @@
   "links": {
     "auth-login": "Sign in",
     "auth-register": "Sign up now",
-    "forgot-pin": "Reset PIN"
+    "forgot-pin": "Reset PIN",
+    "update-pin": "Update PIN"
   },
   "layout": {
     "title": "Your delivery experts!"
@@ -28,5 +29,8 @@
     "pinRequired": "PIN is required!",
     "pinLength": "PIN must be 4 numbers!",
     "pinInvalid": "PIN is invalid!"
+  },
+  "success": {
+    "register": "Confirm account on email!"
   }
 }

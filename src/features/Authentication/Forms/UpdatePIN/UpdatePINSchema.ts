@@ -1,15 +1,15 @@
 import z from 'zod'
 
-export const UnlockAppSchema = z
+export const UpdatePINSchema = z
   .object({
-    pin: z
+    new_pin: z
       .string({ required_error: 'validation.pinRequired' })
       .min(4, 'validation.pinLength')
       .max(4, 'validation.pinLength'),
   })
-  .refine((data) => !Number.isNaN(Number(data.pin)), {
+  .refine((data) => !Number.isNaN(Number(data.new_pin)), {
     message: 'validation.pinInvalid',
-    path: ['pin'],
+    path: ['new_pin'],
   })
 
-export type UnlockAppSchemaType = z.infer<typeof UnlockAppSchema>
+export type UpdatePINSchemaType = z.infer<typeof UpdatePINSchema>

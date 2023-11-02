@@ -3,6 +3,10 @@ import { Home } from './pages/Home/Home'
 import { LoginForm } from './features/Authentication/Forms/LoginForm/LoginForm'
 import { RegisterForm } from './features/Authentication/Forms/RegisterForm/RegisterForm'
 import { UnlockApp } from './features/Authentication/Forms/UnlockApp/UnlockApp'
+import { UpdatePIN } from './features/Authentication/Forms/UpdatePIN/UpdatePIN'
+
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const App = () => {
   return (
@@ -12,8 +16,10 @@ export const App = () => {
           <Route path="" element={<LoginForm />} />
           <Route path="register" element={<RegisterForm />} />
           <Route path="pin" element={<UnlockApp />} />
+          <Route path="pin/update" element={<UpdatePIN />} />
         </Route>
       </Routes>
+      <ToastContainer />
     </BrowserRouter>
   )
 }

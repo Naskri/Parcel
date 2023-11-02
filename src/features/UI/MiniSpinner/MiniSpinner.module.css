@@ -1,0 +1,15 @@
+.mini-spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  animation: rotate 1.5s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -7,7 +7,7 @@ export const ForgotPIN = () => {
   return (
     <div className={styled.forgot}>
       <h2 className={styled.forgot__title}>{t('form.forgot-title')}</h2>
-      <CustomLink path="/pin/forgot" modifier="forgot">
+      <CustomLink path="/pin/update" modifier="forgot">
         {t('links.forgot-pin')}
       </CustomLink>
     </div>
