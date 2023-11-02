@@ -2,16 +2,18 @@
   "links": {
     "auth-login": "Zaloguj się",
     "auth-register": "Zarejestruj się",
-    "forgot-password": "Wyślij"
+    "forgot-pin": "Resetuj PIN"
   },
   "layout": {
     "title": "Twoi eksperci doręczania!"
   },
   "form": {
     "title": "Witaj w Parcel!",
+    "forgot-title": "Nie pamiętasz numeru PIN?",
     "emailLabel": "E-mail",
     "passwordLabel": "Hasło",
     "passwordConfirmLabel": "Hasło potwierdzające",
+    "pinLabel": "PIN",
     "help": "Potrzebujesz pomocy?",
     "helpRegister": "Nie masz jeszcze konta w serwisie Parcel?",
     "helpLogin": "Masz już konto w Parcel?"
@@ -22,6 +24,9 @@
     "passwordRequired": "Hasło jest wymagane.",
     "passwordMin": "Hasło musi mieć minimum 6 znaków.",
     "passwordConfirmRequired": "Hasło potwierdzające jest wymagane.",
-    "passwordsNotMatch": "Hasła się różnią!"
+    "passwordsNotMatch": "Hasła się różnią!",
+    "pinRequired": "PIN jest wymagany!",
+    "pinLength": "PIN musi mieć 4 cyfry!",
+    "pinInvalid": "PIN jest niepoprawny!"
   }
 }

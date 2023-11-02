@@ -4,19 +4,21 @@ import { InputContainer, InputTypes } from '../../../UI/InputContainer/InputCont
 import { FormHeader } from '../FormHeader/FormHeader'
 import styled from './../Form.module.css'
 import { useForm } from 'react-hook-form'
-import { LoginSchema, LoginSchemaType } from './LoginSchema'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { CustomLink } from '../../../UI/CustomLink/CustomLink'
 
-export const LoginForm = () => {
+import { zodResolver } from '@hookform/resolvers/zod'
+import { UnlockAppSchema, UnlockAppSchemaType } from './UnlockAppSchema'
+
+import { ForgotPIN } from './ForgotPIN/ForgotPIN'
+
+export const UnlockApp = () => {
   const { t } = useTranslation()
 
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<LoginSchemaType>({
-    resolver: zodResolver(LoginSchema),
+  } = useForm<UnlockAppSchemaType>({
+    resolver: zodResolver(UnlockAppSchema),
   })
 
   const submitHandler = () => {}
@@ -27,28 +29,16 @@ export const LoginForm = () => {
       <form className={styled.form} onSubmit={handleSubmit(submitHandler)}>
         <InputContainer
           id="email"
-          label="form.emailLabel"
+          label="form.pinLabel"
           type={InputTypes.text}
           required
-          error={errors?.email?.message}
-          {...register('email')}
+          error={errors?.pin?.message}
+          {...register('pin')}
         />
-        <InputContainer
-          id="password"
-          label="form.passwordLabel"
-          type={InputTypes.password}
-          required
-          error={errors?.password?.message}
-          {...register('password')}
-        />
+
         <Button modifier="form">{t('links.auth-login')}</Button>
       </form>
-      <p className={styled.form__help}>
-        {t('form.helpRegister')}{' '}
-        <CustomLink path="/register" modifier="help">
-          {t('links.auth-register')}
-        </CustomLink>
-      </p>
+      <ForgotPIN />
       <div className={styled.form__image}>
         <img src="./images/delivery.jpg" alt="" />
       </div>

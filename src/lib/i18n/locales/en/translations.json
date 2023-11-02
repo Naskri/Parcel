@@ -2,16 +2,18 @@
   "links": {
     "auth-login": "Sign in",
     "auth-register": "Sign up now",
-    "forgot-password": "Send"
+    "forgot-pin": "Reset PIN"
   },
   "layout": {
     "title": "Your delivery experts!"
   },
   "form": {
     "title": "Welcome in Parcel!",
+    "forgot-title": "Forgot your PIN number?",
     "emailLabel": "Email",
     "passwordLabel": "Password",
     "passwordConfirmLabel": "Confirm password",
+    "pinLabel": "PIN",
     "help": "Need help?",
     "helpRegister": "New to Parcel?",
     "helpLogin": "Already in Parcel?"
@@ -22,6 +24,9 @@
     "passwordRequired": "Passowrd is required!",
     "passwordMin": "Password must be atleast 6 characters.",
     "passwordConfirmRequired": "Confirm password is required!",
-    "passwordsNotMatch": "Passwords are not the same!"
+    "passwordsNotMatch": "Passwords are not the same!",
+    "pinRequired": "PIN is required!",
+    "pinLength": "PIN must be 4 numbers!",
+    "pinInvalid": "PIN is invalid!"
   }
 }

@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { RegisterSchema, RegisterSchemaType } from './RegisterSchema'
+import { CustomLink } from '../../../UI/CustomLink/CustomLink'
 
 export const RegisterForm = () => {
   const { t } = useTranslation()
@@ -51,6 +52,12 @@ export const RegisterForm = () => {
         />
         <Button modifier="form">{t('links.auth-register')}</Button>
       </form>
+      <p className={styled.form__help}>
+        {t('form.helpLogin')}{' '}
+        <CustomLink path="/" modifier="help">
+          {t('links.auth-login')}
+        </CustomLink>
+      </p>
       <div className={styled.form__image}>
         <img src="./images/delivery.jpg" alt="" />
       </div>
