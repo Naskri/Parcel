@@ -42,6 +42,9 @@ export const LoginForm = () => {
         />
         <Button modifier="form">{t('links.auth-login')}</Button>
       </form>
+      <div className={styled.form__image}>
+        <img src="./images/delivery.jpg" alt="" />
+      </div>
     </div>
   )
 }
