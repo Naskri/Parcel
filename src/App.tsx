@@ -1,3 +1,11 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 export const App = () => {
-  return <h1>Parcel App!</h1>;
-};
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<h1>Hi!</h1>} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
