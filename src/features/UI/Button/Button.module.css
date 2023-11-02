@@ -4,3 +4,27 @@
   background-color: transparent;
   font-family: inherit;
 }
+
+.button--form {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  padding: 1rem 0;
+  width: 100%;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.button--language-select {
+  background-color: var(--color-primary);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  border-radius: 4px;
+}

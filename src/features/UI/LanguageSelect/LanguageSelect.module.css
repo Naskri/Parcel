@@ -1,0 +1,21 @@
+.language-select__container {
+  position: relative;
+  width: fit-content;
+  height: 100%;
+}
+
+.language-select {
+  height: 100%;
+
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-background);
+  border-radius: 4px;
+  padding: 0 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.language-select__icon {
+  fill: var(--color-white);
+}

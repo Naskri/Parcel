@@ -1,3 +1,27 @@
 {
-  "auth": "auth"
+  "links": {
+    "auth-login": "Zaloguj się",
+    "auth-register": "Zarejestruj się",
+    "forgot-password": "Wyślij"
+  },
+  "layout": {
+    "title": "Twoi eksperci doręczania!"
+  },
+  "form": {
+    "title": "Witaj w Parcel!",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Hasło",
+    "passwordConfirmLabel": "Hasło potwierdzające",
+    "help": "Potrzebujesz pomocy?",
+    "helpRegister": "Nie masz jeszcze konta w serwisie Parcel?",
+    "helpLogin": "Masz już konto w Parcel?"
+  },
+  "validation": {
+    "emailRequired": "Adres e-mail jest wymagany.",
+    "emailInvalid": "Wprowadź prawidłowy adres e-mail.",
+    "passwordRequired": "Hasło jest wymagane.",
+    "passwordMin": "Hasło musi mieć minimum 6 znaków.",
+    "passwordConfirmRequired": "Hasło potwierdzające jest wymagane.",
+    "passwordsNotMatch": "Hasła się różnią!"
+  }
 }

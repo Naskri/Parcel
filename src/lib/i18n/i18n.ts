@@ -20,3 +20,7 @@ export const resources = {
 export const initI18N = () => {
   i18next.use(initReactI18next).use(LanguageDetector).init({ resources })
 }
+
+export type FlattenTranslations<T, Prefix extends string = ''> = {
+  [K in Extract<keyof T, string>]: `${Prefix}${K}`
+}
