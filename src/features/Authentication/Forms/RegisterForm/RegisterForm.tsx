@@ -9,7 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { RegisterSchema, RegisterSchemaType } from './RegisterSchema'
 import { CustomLink } from '../../../UI/CustomLink/CustomLink'
 import { useRegister } from './useRegister'
-import { MiniSpinner } from '../../../UI/MiniSpinner/MiniSpinner'
+import { MiniSpinner } from '../../../UI/Spinner/MiniSpinner/MiniSpinner'
 
 export const RegisterForm = () => {
   const { t } = useTranslation()

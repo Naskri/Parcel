@@ -1,4 +1,5 @@
 import { supabase } from '../../lib/supabase/supabase'
+import { LoginProps } from './Forms/LoginForm/useLogin'
 import { RegisterProps } from './Forms/RegisterForm/useRegister'
 
 export const signup = async ({ email, password, pin }: RegisterProps) => {
@@ -17,4 +18,34 @@ export const signup = async ({ email, password, pin }: RegisterProps) => {
   }
 
   return data
+}
+
+export const login = async ({ email, password }: LoginProps) => {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  })
+
+  if (error) {
+    throw new Error(error.message)
+  }
+
+  return data
+}
+
+export const getCurrentUser = async () => {
+  const { data: session } = await supabase.auth.getSession()
+
+  if (!session.session) return null
+
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser()
+
+  if (error) {
+    throw new Error(error.message)
+  }
+
+  return user
 }

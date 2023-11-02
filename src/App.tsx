@@ -7,6 +7,7 @@ import { UpdatePIN } from './features/Authentication/Forms/UpdatePIN/UpdatePIN'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { ProtectedRoute } from './features/UI/ProtectedRoute/ProtectedRoute'
 
 export const App = () => {
   return (
@@ -17,6 +18,14 @@ export const App = () => {
           <Route path="register" element={<RegisterForm />} />
           <Route path="pin" element={<UnlockApp />} />
           <Route path="pin/update" element={<UpdatePIN />} />
+          <Route
+            path="dashboard"
+            element={
+              <ProtectedRoute>
+                <h1>Hi!</h1>
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
       <ToastContainer />

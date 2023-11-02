@@ -9,9 +9,14 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { UnlockAppSchema, UnlockAppSchemaType } from './UnlockAppSchema'
 
 import { ForgotPIN } from './ForgotPIN/ForgotPIN'
+import { useUser } from '../../useUser'
+import { useNavigate } from 'react-router'
+import { toast } from 'react-toastify'
 
 export const UnlockApp = () => {
   const { t } = useTranslation()
+  const { user } = useUser()
+  const navigate = useNavigate()
 
   const {
     register,
@@ -21,7 +26,18 @@ export const UnlockApp = () => {
     resolver: zodResolver(UnlockAppSchema),
   })
 
-  const submitHandler = () => {}
+  const submitHandler = ({ pin }: UnlockAppSchemaType) => {
+    const userPIN = Number(user?.user_metadata?.pin)
+
+    if (!userPIN) return
+
+    if (Number(pin) === userPIN) {
+      toast.success(t('success.dashboard'))
+      navigate('/dashboard')
+    } else {
+      toast.error(t('validation.pinNotMatch'))
+    }
+  }
 
   return (
     <div className={styled.form__container}>
@@ -36,7 +52,7 @@ export const UnlockApp = () => {
           {...register('pin')}
         />
 
-        <Button modifier="form">{t('links.auth-login')}</Button>
+        <Button modifier="form">{t('links.auth-pin')}</Button>
       </form>
       <ForgotPIN />
       <div className={styled.form__image}>

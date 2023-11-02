@@ -1,3 +1,17 @@
+.fullpagespinner {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 5rem;
+  height: 5rem;
+
+  animation: rotate 1.5s linear infinite;
+}
+
 .mini-spinner {
   width: 1.5rem;
   height: 1.5rem;

@@ -2,6 +2,7 @@
   "links": {
     "auth-login": "Zaloguj się",
     "auth-register": "Zarejestruj się",
+    "auth-pin": "Odblokuj aplikację",
     "forgot-pin": "Resetuj PIN",
     "update-pin": "Zmień PIN"
   },
@@ -28,9 +29,12 @@
     "passwordsNotMatch": "Hasła się różnią!",
     "pinRequired": "PIN jest wymagany!",
     "pinLength": "PIN musi mieć 4 cyfry!",
-    "pinInvalid": "PIN jest niepoprawny!"
+    "pinInvalid": "PIN jest niepoprawny!",
+    "pinNotMatch": "PIN się nie zgadza!"
   },
   "success": {
-    "register": "Potwierdź konto na email!"
+    "register": "Potwierdź konto na email!",
+    "login": "Pomyślnie zalogowano",
+    "dashboard": "Pomyślnie, korzystaj z aplikacji"
   }
 }

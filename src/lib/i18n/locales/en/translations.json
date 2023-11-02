@@ -2,6 +2,7 @@
   "links": {
     "auth-login": "Sign in",
     "auth-register": "Sign up now",
+    "auth-pin": "Unlock application",
     "forgot-pin": "Reset PIN",
     "update-pin": "Update PIN"
   },
@@ -28,9 +29,12 @@
     "passwordsNotMatch": "Passwords are not the same!",
     "pinRequired": "PIN is required!",
     "pinLength": "PIN must be 4 numbers!",
-    "pinInvalid": "PIN is invalid!"
+    "pinInvalid": "PIN is invalid!",
+    "pinNotMatch": "PIN not match!"
   },
   "success": {
-    "register": "Confirm account on email!"
+    "register": "Confirm account on email!",
+    "login": "Succesfully logged",
+    "dashboard": "Correct, use the app"
   }
 }
