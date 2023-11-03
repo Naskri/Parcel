@@ -1,4 +1,4 @@
-import { AiOutlineSearch } from 'react-icons/ai'
+import { AiOutlineSearch, AiOutlineHome } from 'react-icons/ai'
 import { IoStatsChartOutline } from 'react-icons/io5'
 import { TbPackages } from 'react-icons/tb'
 import { FaArrowsLeftRight } from 'react-icons/fa6'
@@ -34,5 +34,11 @@ export const NavigationListData = [
     title: 'navigation.item5title' as const,
     Icon: FaMapMarked,
     path: '/dashboard/modify',
+  },
+  {
+    id: 6,
+    title: 'navigation.item6title' as const,
+    Icon: AiOutlineHome,
+    path: '/dashboard',
   },
 ]

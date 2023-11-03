@@ -10,6 +10,10 @@ export const signup = async ({ email, password, pin }: RegisterProps) => {
     options: {
       data: {
         pin,
+        start_work: null,
+        end_work: null,
+        is_work: false,
+        day_off: false,
       },
     },
   })

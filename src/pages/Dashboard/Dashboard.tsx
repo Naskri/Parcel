@@ -1,10 +1,10 @@
-import { Navigation } from '../../features/Layout/Navigation/Navigation'
 import styled from './Dashboard.module.css'
+import { Outlet } from 'react-router'
 
 export const Dashboard = () => {
   return (
     <main className={styled.dashboard}>
-      <Navigation title="Witaj!" />
+      <Outlet />
     </main>
   )
 }

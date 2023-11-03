@@ -44,6 +44,20 @@
     "item3title": "Przekaż paczki",
     "item4title": "Próba doręczenia",
     "item5title": "Modyfikuj punkty adresowe",
-    "logout": "Wyloguj"
+    "item6title": "Strona główna",
+    "logout": "Wyloguj",
+    "work-time": "Czas pracy",
+    "warehouse": "Magazyn",
+    "route": "Trasa"
+  },
+  "work-time": {
+    "status-title": "Status:",
+    "status": "W trakcie pracy",
+    "status-end": "Zakończono prace",
+    "status-start": "Zacznij pracę",
+    "time-start-title": "Data i godzina rozpoczęcia pracy:",
+    "time-end-title": "Data i godzina zakończenia pracy:",
+    "button-end": "Zgłoś zakończenie pracy",
+    "button-start": "Zgłoś rozpoczęcie pracy"
   }
 }

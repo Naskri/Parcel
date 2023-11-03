@@ -1,5 +1,6 @@
 import { Button } from '../../UI/Button/Button'
 import { RxHamburgerMenu } from 'react-icons/rx'
+import { RiCloseLine } from 'react-icons/ri'
 import styled from './Navigation.module.css'
 import { NavigationList } from './NavigationList/NavigationList'
 import { useState } from 'react'
@@ -20,7 +21,7 @@ export const Navigation = ({ title }: NavigationProps) => {
       {isShowedList && <NavigationList />}
       <p>{title}</p>
       <Button modifier="menu" onClick={toggle}>
-        <RxHamburgerMenu />
+        {isShowedList ? <RiCloseLine /> : <RxHamburgerMenu />}
       </Button>
     </nav>
   )

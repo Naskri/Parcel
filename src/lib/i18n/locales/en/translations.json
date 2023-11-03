@@ -44,6 +44,20 @@
     "item3title": "Hand over the parcels",
     "item4title": "Delivery attempted",
     "item5title": "Modify address points",
-    "logout": "Logout"
+    "item6title": "Home",
+    "logout": "Logout",
+    "work-time": "Work time",
+    "warehouse": "Warehouse",
+    "route": "Route"
+  },
+  "work-time": {
+    "status-title": "Status:",
+    "status": "During work",
+    "status-end": "Work completed",
+    "status-start": "Start work",
+    "time-start-title": "Work start date and time:",
+    "time-end-title": "Work end date and time:",
+    "button-end": "Report job completion",
+    "button-start": "Report job start"
   }
 }

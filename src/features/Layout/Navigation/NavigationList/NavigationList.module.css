@@ -14,6 +14,6 @@
 }
 
 .nav-item-icon {
-  fill: var(--color-primary);
+  color: var(--color-primary);
   font-size: 1.25rem;
 }

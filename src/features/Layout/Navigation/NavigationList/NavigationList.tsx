@@ -10,11 +10,13 @@ export const NavigationList = () => {
   return (
     <ul className={styled['nav-list']}>
       {NavigationListData.map(({ id, title, Icon, path }) => (
-        <CustomLink key={id} path={path} modifier="navigation">
-          <Icon className={styled['nav-item-icon']} /> <span>{t(title)}</span>
-        </CustomLink>
+        <li key={id}>
+          <CustomLink path={path} modifier="navigation">
+            <Icon className={styled['nav-item-icon']} /> <span>{t(title)}</span>
+          </CustomLink>
+        </li>
       ))}
-      <Button modifier="nav-logout">{t('navigation.logout')}</Button>
+      <Button modifier="primary">{t('navigation.logout')}</Button>
     </ul>
   )
 }

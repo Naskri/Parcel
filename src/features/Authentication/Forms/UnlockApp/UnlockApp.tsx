@@ -32,7 +32,6 @@ export const UnlockApp = () => {
     if (!userPIN) return
 
     if (Number(pin) === userPIN) {
-      toast.success(t('success.dashboard'))
       navigate('/dashboard')
     } else {
       toast.error(t('validation.pinNotMatch'))

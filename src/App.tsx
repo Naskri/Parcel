@@ -9,6 +9,8 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { ProtectedRoute } from './features/UI/ProtectedRoute/ProtectedRoute'
 import { Dashboard } from './pages/Dashboard/Dashboard'
+import { MainNavigation } from './pages/MainNavigation/MainNavigation'
+import { Time } from './pages/Time/Time'
 
 export const App = () => {
   return (
@@ -26,7 +28,10 @@ export const App = () => {
                 <Dashboard />
               </ProtectedRoute>
             }
-          />
+          >
+            <Route path="" element={<MainNavigation />} />
+            <Route path="time" element={<Time />} />
+          </Route>
         </Route>
       </Routes>
       <ToastContainer />
