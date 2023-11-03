@@ -1,0 +1,16 @@
+.map {
+  position: relative;
+  flex-grow: 1;
+}
+
+.map__container {
+  height: 100%;
+}
+
+.map__action {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}

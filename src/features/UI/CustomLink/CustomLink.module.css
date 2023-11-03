@@ -15,14 +15,24 @@
 }
 
 .custom-link--forgot:link,
-.custom-link--forgot:visited {
+.custom-link--forgot:visited,
+.custom-link--primary:link,
+.custom-link--primary:visited {
   color: var(--color-white);
-  background-color: #232222;
   padding: 0.75rem 0;
   width: 100%;
   border-radius: 4px;
   font-weight: 500;
   font-size: 1rem;
+}
+
+.custom-link--forgot:link {
+  background-color: var(--color-text);
+}
+
+.custom-link--primary:link {
+  padding: 0.75rem 1rem;
+  background-color: var(--color-primary);
 }
 
 .custom-link--navigation:link,
@@ -46,8 +56,7 @@
 .custom-link--help:visited,
 .custom-link--navigation:link,
 .custom-link--navigation:visited {
-  --color: #232222;
-  color: var(--color);
+  color: var(--color-text);
   font-weight: 500;
   transition: 0.3s;
 }
@@ -63,4 +72,15 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+}
+
+.custom-link--street:link,
+.custom-link--street:visited {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 1rem;
 }

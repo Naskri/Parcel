@@ -11,6 +11,10 @@ import { ProtectedRoute } from './features/UI/ProtectedRoute/ProtectedRoute'
 import { Dashboard } from './pages/Dashboard/Dashboard'
 import { MainNavigation } from './pages/MainNavigation/MainNavigation'
 import { Time } from './pages/Time/Time'
+import { Warehouse } from './pages/Warehouse/Warehouse'
+import { Packages } from './pages/Packages/Packages'
+import { NewPackage } from './pages/NewPackage/NewPackage'
+import { Map } from './pages/Map/Map'
 
 export const App = () => {
   return (
@@ -31,6 +35,10 @@ export const App = () => {
           >
             <Route path="" element={<MainNavigation />} />
             <Route path="time" element={<Time />} />
+            <Route path="warehouse" element={<Warehouse />} />
+            <Route path="warehouse/packages" element={<Packages />} />
+            <Route path="warehouse/packages/new" element={<NewPackage />} />
+            <Route path="warehouse/packages/new/map" element={<Map />} />
           </Route>
         </Route>
       </Routes>

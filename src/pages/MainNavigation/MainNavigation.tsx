@@ -30,12 +30,12 @@ export const MainNavigation = () => {
             </CustomLink>
           </li>
         )}
-        <CustomLink path="/dashboard/work" modifier="dashboard">
-          <li className={styled.dashboard__item}>
+        <li className={styled.dashboard__item}>
+          <CustomLink path="/dashboard/work" modifier="dashboard">
             <LuMapPin className={styled.icon} />
             <p className={styled.title}>{t('navigation.route')}</p>
-          </li>
-        </CustomLink>
+          </CustomLink>
+        </li>
       </ul>
     </>
   )

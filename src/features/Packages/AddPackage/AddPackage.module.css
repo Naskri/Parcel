@@ -1,0 +1,23 @@
+.add-package {
+  flex-grow: 1;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-package__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.add-package__city {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.add-package__street {
+  position: relative;
+}

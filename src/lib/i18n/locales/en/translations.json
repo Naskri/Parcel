@@ -16,6 +16,11 @@
     "passwordLabel": "Password",
     "passwordConfirmLabel": "Confirm password",
     "pinLabel": "PIN",
+    "nameLabel": "Point name",
+    "streetLabel": "Street",
+    "zipCodeLabel": "Zip code",
+    "cityLabel": "City",
+    "houseLabel": "House number",
     "help": "Need help?",
     "helpRegister": "New to Parcel?",
     "helpLogin": "Already in Parcel?"
@@ -48,7 +53,10 @@
     "logout": "Logout",
     "work-time": "Work time",
     "warehouse": "Warehouse",
-    "route": "Route"
+    "route": "Route",
+    "packages": "Add packages",
+    "plan-route": "Plan your route",
+    "map": "Point on the map"
   },
   "work-time": {
     "status-title": "Status:",

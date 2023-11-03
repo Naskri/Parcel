@@ -1,0 +1,12 @@
+.packages {
+  position: relative;
+  flex-grow: 1;
+  padding: 4rem 1rem 1rem 1rem;
+}
+
+.packages__action {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}

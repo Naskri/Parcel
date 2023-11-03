@@ -16,6 +16,11 @@
     "passwordLabel": "Hasło",
     "passwordConfirmLabel": "Hasło potwierdzające",
     "pinLabel": "PIN",
+    "nameLabel": "Nazwa punktu",
+    "streetLabel": "Ulica",
+    "zipCodeLabel": "Kod pocztowy",
+    "cityLabel": "Miasto",
+    "houseLabel": "Numer domu",
     "help": "Potrzebujesz pomocy?",
     "helpRegister": "Nie masz jeszcze konta w serwisie Parcel?",
     "helpLogin": "Masz już konto w Parcel?"
@@ -48,7 +53,10 @@
     "logout": "Wyloguj",
     "work-time": "Czas pracy",
     "warehouse": "Magazyn",
-    "route": "Trasa"
+    "route": "Trasa",
+    "packages": "Dodaj paczki",
+    "plan-route": "Planuj trasę",
+    "map": "Wskaż na mapie"
   },
   "work-time": {
     "status-title": "Status:",
