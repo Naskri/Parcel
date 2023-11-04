@@ -1,30 +1,29 @@
-import { useTranslation } from 'react-i18next'
-import { Button } from '../../UI/Button/Button'
-import { InputContainer, InputTypes } from '../../UI/InputContainer/InputContainer'
-import { MiniSpinner } from '../../UI/Spinner/MiniSpinner/MiniSpinner'
+import { useNavigate, useParams } from 'react-router'
+import { AddressPoint } from '../AddressPoint/AddressPoint'
 import styled from './AddPackage.module.css'
-import { CustomLink } from '../../UI/CustomLink/CustomLink'
+import { useEffect } from 'react'
+import { AddPackageForm } from './AddPackageForm/AddPackageForm'
+import { useGetAddressPoint } from '../AddressPoint/services/useGetAddressPoint'
 
 export const AddPackage = () => {
-  const is = true
-  const { t } = useTranslation()
+  const { id } = useParams()
+  const { address, isLoading } = useGetAddressPoint(id)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!isLoading && !address) {
+      navigate('/dashboard/warehouse/packages')
+    }
+  }, [address, isLoading])
+
   return (
-    <div className={styled['add-package']}>
-      <form className={styled['add-package__form']}>
-        <InputContainer id="name" label="form.nameLabel" type={InputTypes.text} required />
-        <div className={styled['add-package__street']}>
-          <InputContainer id="street" label="form.streetLabel" type={InputTypes.text} required />
-          <CustomLink path="map" modifier="street">
-            {t('navigation.map')}
-          </CustomLink>
+    <div className={styled.add}>
+      {!isLoading && <AddressPoint data={address} />}
+      {id && (
+        <div className={styled['add-rest']}>
+          <AddPackageForm id={id} />
         </div>
-        <div className={styled['add-package__city']}>
-          <InputContainer id="zipCode" label="form.zipCodeLabel" type={InputTypes.text} required />
-          <InputContainer id="city" label="form.cityLabel" type={InputTypes.text} required />
-          <InputContainer id="house" label="form.houseLabel" type={InputTypes.text} required />
-        </div>
-        <Button modifier="form">{is ? <MiniSpinner /> : t('links.auth-login')}</Button>
-      </form>
+      )}
     </div>
   )
 }

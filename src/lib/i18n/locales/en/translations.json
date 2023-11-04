@@ -4,7 +4,8 @@
     "auth-register": "Sign up now",
     "auth-pin": "Unlock application",
     "forgot-pin": "Reset PIN",
-    "update-pin": "Update PIN"
+    "update-pin": "Update PIN",
+    "add-point": "Add address"
   },
   "layout": {
     "title": "Delivery experts!"
@@ -16,11 +17,17 @@
     "passwordLabel": "Password",
     "passwordConfirmLabel": "Confirm password",
     "pinLabel": "PIN",
+    "customerLabel": "Name and surname",
     "nameLabel": "Point name",
     "streetLabel": "Street",
     "zipCodeLabel": "Zip code",
     "cityLabel": "City",
-    "houseLabel": "House number",
+    "houseLabel": "House",
+    "phoneLabel": "Phone number",
+    "widthLabel": "Width",
+    "heightLabel": "Height",
+    "lengthLabel": "Length",
+    "weightLabel": "Weight",
     "help": "Need help?",
     "helpRegister": "New to Parcel?",
     "helpLogin": "Already in Parcel?"

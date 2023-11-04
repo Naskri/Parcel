@@ -11,6 +11,7 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
+  z-index: 9999;
 }
 
 .nav-item-icon {

@@ -1,6 +1,7 @@
 interface ImportMetaEnv {
   readonly SUPABASE_URL: string
-  readonly SUPABSE_API_KEY: string
+  readonly SUPABASE_API_KEY: string
+  readonly GEOAPI_API_KEY: string
 }
 
 interface ImportMeta {

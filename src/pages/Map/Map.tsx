@@ -6,7 +6,7 @@ import { LeafletMouseEvent } from 'leaflet'
 import { usePosition } from '../../hooks/usePosition'
 import { CustomLink } from '../../features/UI/CustomLink/CustomLink'
 
-type GeoLocation = {
+export type GeoLocation = {
   latitude: number
   longitude: number
 }
@@ -92,7 +92,7 @@ export const Map = () => {
         {userPosition && (
           <div className={styled.map__action}>
             <CustomLink
-              path={`./../?lat=${userPosition.latitude}&lng=${userPosition.longitude}`}
+              path={`./../?lat=${userPosition.latitude}&log=${userPosition.longitude}`}
               modifier="primary"
             >
               Potwierdź dane

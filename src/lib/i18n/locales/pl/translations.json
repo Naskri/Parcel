@@ -4,7 +4,8 @@
     "auth-register": "Zarejestruj się",
     "auth-pin": "Odblokuj aplikację",
     "forgot-pin": "Resetuj PIN",
-    "update-pin": "Zmień PIN"
+    "update-pin": "Zmień PIN",
+    "add-point": "Dodaj adres"
   },
   "layout": {
     "title": "Eksperci doręczania!"
@@ -16,11 +17,18 @@
     "passwordLabel": "Hasło",
     "passwordConfirmLabel": "Hasło potwierdzające",
     "pinLabel": "PIN",
+    "customerLabel": "Imię i nazwisko",
     "nameLabel": "Nazwa punktu",
     "streetLabel": "Ulica",
     "zipCodeLabel": "Kod pocztowy",
     "cityLabel": "Miasto",
     "houseLabel": "Numer domu",
+    "phoneLabel": "Numer telefonu",
+    "widthLabel": "Szerokość",
+    "heightLabel": "Wysokość",
+    "lengthLabel": "Długość",
+    "weightLabel": "Waga",
+    "quantityLabel": "Ilość",
     "help": "Potrzebujesz pomocy?",
     "helpRegister": "Nie masz jeszcze konta w serwisie Parcel?",
     "helpLogin": "Masz już konto w Parcel?"
