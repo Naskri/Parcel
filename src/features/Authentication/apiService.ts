@@ -66,3 +66,11 @@ export const updatePIN = async ({ pin }: UpdatePINProps) => {
 
   return data
 }
+
+export const userSignout = async () => {
+  const { error } = await supabase.auth.signOut()
+
+  if (error) {
+    throw new Error(error.message)
+  }
+}

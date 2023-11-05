@@ -3,9 +3,11 @@ import styled from './NavigationList.module.css'
 import { useTranslation } from 'react-i18next'
 import { CustomLink } from '../../../UI/CustomLink/CustomLink'
 import { Button } from '../../../UI/Button/Button'
+import { useSignout } from '../../../Authentication/useSignout'
 
 export const NavigationList = () => {
   const { t } = useTranslation()
+  const { signout } = useSignout()
 
   return (
     <ul className={styled['nav-list']}>
@@ -16,7 +18,9 @@ export const NavigationList = () => {
           </CustomLink>
         </li>
       ))}
-      <Button modifier="primary">{t('navigation.logout')}</Button>
+      <Button modifier="primary" onClick={signout}>
+        {t('navigation.logout')}
+      </Button>
     </ul>
   )
 }
