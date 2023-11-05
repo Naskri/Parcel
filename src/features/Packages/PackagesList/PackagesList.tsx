@@ -1,11 +1,14 @@
+import { useUser } from '../../Authentication/useUser'
 import { CustomLink } from '../../UI/CustomLink/CustomLink'
 import { Spinner } from '../../UI/Spinner/Spinner'
 import { AddressPoint } from '../AddressPoint/AddressPoint'
 import styled from './PackagesList.module.css'
-import { useGetAllAddresses } from './services/useGetAllAddresses'
+import { useGetAllUserAddresses } from './services/useGetAllAddresses'
 
 export const PackagesList = () => {
-  const { addresses, isLoading } = useGetAllAddresses()
+  const { user } = useUser()
+
+  const { addresses, isLoading } = useGetAllUserAddresses(user?.id)
 
   if (isLoading) return <Spinner />
 
