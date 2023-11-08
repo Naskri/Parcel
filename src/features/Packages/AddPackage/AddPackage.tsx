@@ -3,22 +3,24 @@ import { AddressPoint } from '../AddressPoint/AddressPoint'
 import styled from './AddPackage.module.css'
 import { useEffect } from 'react'
 import { AddPackageForm } from './AddPackageForm/AddPackageForm'
-import { useGetAddressPoint } from '../AddressPoint/services/useGetAddressPoint'
+import { usePackagesContext } from '../PackagesContext/PackagesContext'
 
 export const AddPackage = () => {
   const { id } = useParams()
-  const { address, isLoading } = useGetAddressPoint(id)
+  const { existAddress } = usePackagesContext()
   const navigate = useNavigate()
 
+  const address = existAddress(id)
+
   useEffect(() => {
-    if (!isLoading && !address) {
+    if (!address) {
       navigate('/dashboard/warehouse/packages')
     }
-  }, [address, isLoading])
+  }, [address])
 
   return (
     <div className={styled.add}>
-      {!isLoading && <AddressPoint data={address} />}
+      {address && <AddressPoint data={address} />}
       {id && (
         <div className={styled['add-rest']}>
           <AddPackageForm id={id} />

@@ -4,13 +4,16 @@ import { InputContainer, InputTypes } from '../../../UI/InputContainer/InputCont
 import styled from './AddPackageForm.module.css'
 import { AddPackageSchema, AddPackageSchemaType } from './AddPackageSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useAddPackage } from './services/useAddPackage'
+
+import { usePackagesContext } from '../../PackagesContext/PackagesContext'
 
 type AddPackageFormProps = {
   id: string
 }
 
 export const AddPackageForm = ({ id }: AddPackageFormProps) => {
+  const { addPackage } = usePackagesContext()
+
   const {
     register,
     formState: { errors },
@@ -20,16 +23,9 @@ export const AddPackageForm = ({ id }: AddPackageFormProps) => {
     resolver: zodResolver(AddPackageSchema),
   })
 
-  const { addPackageToPoint } = useAddPackage()
-
   const submitHandler = (data: AddPackageSchemaType) => {
-    const newPackage = {
-      ...data,
-      address_id: id,
-      package_id: Math.random().toString(),
-    }
-
-    addPackageToPoint(newPackage, { onSuccess: () => reset() })
+    addPackage({ ...data, address_id: id, package_id: Math.random().toString() })
+    reset()
   }
 
   return (

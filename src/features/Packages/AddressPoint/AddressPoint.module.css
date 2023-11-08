@@ -1,4 +1,27 @@
 .address {
   padding: 1rem;
-  background-color: red;
+  background-color: var(--color-navigation-background);
+  border-bottom: 1px solid var(--color-black);
+}
+
+.address__street {
+  font-weight: 500;
+}
+
+.address__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.packages {
+  background-color: var(--color-primary);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--color-white);
+  border: 1px solid var(--color-black);
 }

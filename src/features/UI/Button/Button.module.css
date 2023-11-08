@@ -51,3 +51,18 @@
   font-weight: 500;
   width: 100%;
 }
+
+.button--back {
+  background-color: var(--color-primary);
+  padding: 0 1rem;
+  align-self: stretch;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button--back svg {
+  font-size: 1rem;
+  color: var(--color-white);
+}

@@ -7,10 +7,12 @@ import { CustomLink } from '../../../UI/CustomLink/CustomLink'
 import { Button } from '../../../UI/Button/Button'
 import { MiniSpinner } from '../../../UI/Spinner/MiniSpinner/MiniSpinner'
 import { useTranslation } from 'react-i18next'
-import { useAddPoint } from '../services/useAddPoint'
 import { useUser } from '../../../Authentication/useUser'
 import { v4 as uuidv4 } from 'uuid'
 import { useNavigate } from 'react-router'
+import { usePackagesContext } from '../../PackagesContext/PackagesContext'
+import { useState } from 'react'
+import { ButtonBack } from '../../../UI/Button/ButtonBack/ButtonBack'
 
 type AddPackagePointFormProps = {
   data?: any
@@ -18,9 +20,10 @@ type AddPackagePointFormProps = {
 
 export const AddPackagePointForm = ({ data }: AddPackagePointFormProps) => {
   const { t } = useTranslation()
-  const { addPoint, isLoading } = useAddPoint()
+  const [isLoading, setIsLoading] = useState(false)
   const { user } = useUser()
   const navigate = useNavigate()
+  const { addAddress } = usePackagesContext()
 
   const {
     register,
@@ -39,92 +42,93 @@ export const AddPackagePointForm = ({ data }: AddPackagePointFormProps) => {
   })
 
   const submitHandler = (data: AddPackagePointSchemaType) => {
+    setIsLoading(true)
     if (!user) return
     const customID = uuidv4()
-    addPoint(
-      { ...data, user_id: user.id, custom_id: customID },
-      {
-        onSuccess: () => {
-          reset({ name: '', street: '', zipCode: '', city: '', house: '', customer: '', phone: '' })
-          navigate(`/dashboard/warehouse/packages/${customID}`)
-        },
-      }
-    )
+    addAddress({ ...data, user_id: user.id, custom_id: customID })
+    reset({ name: '', street: '', zipCode: '', city: '', house: '', customer: '', phone: '' })
+    setIsLoading(false)
+    navigate(`/dashboard/warehouse/packages/${customID}`)
   }
 
   return (
-    <form className={styled['add-package__form']} onSubmit={handleSubmit(submitHandler)}>
-      <InputContainer
-        id="customer"
-        label="form.customerLabel"
-        type={InputTypes.text}
-        required
-        error={errors?.customer?.message}
-        disabled={isLoading}
-        {...register('customer')}
-      />
-      <InputContainer
-        id="name"
-        label="form.nameLabel"
-        type={InputTypes.text}
-        required
-        error={errors?.name?.message}
-        disabled={isLoading}
-        {...register('name')}
-      />
-      <div className={styled['add-package__street']}>
-        <InputContainer
-          id="street"
-          label="form.streetLabel"
-          type={InputTypes.text}
-          required
-          error={errors?.street?.message}
-          disabled={isLoading}
-          {...register('street')}
-        />
-        <CustomLink path="map" modifier="street">
-          {t('navigation.map')}
-        </CustomLink>
+    <>
+      <div className={styled['add-package__back']}>
+        <ButtonBack />
       </div>
-      <div className={styled['add-package__city']}>
+      <form className={styled['add-package__form']} onSubmit={handleSubmit(submitHandler)}>
         <InputContainer
-          id="zipCode"
-          label="form.zipCodeLabel"
+          id="customer"
+          label="form.customerLabel"
           type={InputTypes.text}
           required
-          error={errors?.zipCode?.message}
+          error={errors?.customer?.message}
           disabled={isLoading}
-          {...register('zipCode')}
+          {...register('customer')}
         />
         <InputContainer
-          id="city"
-          label="form.cityLabel"
+          id="name"
+          label="form.nameLabel"
           type={InputTypes.text}
           required
-          error={errors?.city?.message}
+          error={errors?.name?.message}
           disabled={isLoading}
-          {...register('city')}
+          {...register('name')}
         />
+        <div className={styled['add-package__street']}>
+          <InputContainer
+            id="street"
+            label="form.streetLabel"
+            type={InputTypes.text}
+            required
+            error={errors?.street?.message}
+            disabled={isLoading}
+            {...register('street')}
+          />
+          <CustomLink path="map" modifier="street">
+            {t('navigation.map')}
+          </CustomLink>
+        </div>
+        <div className={styled['add-package__city']}>
+          <InputContainer
+            id="zipCode"
+            label="form.zipCodeLabel"
+            type={InputTypes.text}
+            required
+            error={errors?.zipCode?.message}
+            disabled={isLoading}
+            {...register('zipCode')}
+          />
+          <InputContainer
+            id="city"
+            label="form.cityLabel"
+            type={InputTypes.text}
+            required
+            error={errors?.city?.message}
+            disabled={isLoading}
+            {...register('city')}
+          />
+          <InputContainer
+            id="house"
+            label="form.houseLabel"
+            type={InputTypes.text}
+            required
+            error={errors?.house?.message}
+            disabled={isLoading}
+            {...register('house')}
+          />
+        </div>
         <InputContainer
-          id="house"
-          label="form.houseLabel"
+          id="phone"
+          label="form.phoneLabel"
           type={InputTypes.text}
           required
-          error={errors?.house?.message}
+          error={errors?.phone?.message}
           disabled={isLoading}
-          {...register('house')}
+          {...register('phone')}
         />
-      </div>
-      <InputContainer
-        id="phone"
-        label="form.phoneLabel"
-        type={InputTypes.text}
-        required
-        error={errors?.phone?.message}
-        disabled={isLoading}
-        {...register('phone')}
-      />
-      <Button modifier="form">{isLoading ? <MiniSpinner /> : t('links.add-point')}</Button>
-    </form>
+        <Button modifier="form">{isLoading ? <MiniSpinner /> : t('links.add-point')}</Button>
+      </form>
+    </>
   )
 }

@@ -2,8 +2,13 @@
   flex-grow: 1;
   padding: 1rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.add-package__back {
+  margin-bottom: 2rem;
 }
 
 .add-package__form {

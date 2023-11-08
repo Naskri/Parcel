@@ -17,7 +17,7 @@ export const Warehouse = () => {
         </li>
 
         <li className={styled.dashboard__item}>
-          <CustomLink path="/dashboard/work" modifier="primary">
+          <CustomLink path="/dashboard/warehouse/work" modifier="primary">
             <p className={styled.title}>{t('navigation.plan-route')}</p>
           </CustomLink>
         </li>

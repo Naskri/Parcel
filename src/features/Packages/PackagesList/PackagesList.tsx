@@ -1,24 +1,22 @@
-import { useUser } from '../../Authentication/useUser'
+import { ButtonBack } from '../../UI/Button/ButtonBack/ButtonBack'
 import { CustomLink } from '../../UI/CustomLink/CustomLink'
-import { Spinner } from '../../UI/Spinner/Spinner'
 import { AddressPoint } from '../AddressPoint/AddressPoint'
+import { usePackagesContext } from '../PackagesContext/PackagesContext'
 import styled from './PackagesList.module.css'
-import { useGetAllUserAddresses } from './services/useGetAllAddresses'
 
 export const PackagesList = () => {
-  const { user } = useUser()
-
-  const { addresses, isLoading } = useGetAllUserAddresses(user?.id)
-
-  if (isLoading) return <Spinner />
+  const { addresses } = usePackagesContext()
 
   return (
     <div className={styled.packages}>
-      {addresses?.map((address) => <AddressPoint key={address.id} data={address} />)}
+      {addresses.map((address) => (
+        <AddressPoint key={address.custom_id} data={address} />
+      ))}
       <div className={styled.packages__action}>
         <CustomLink modifier="primary" path="/dashboard/warehouse/packages/new">
           Dodaj adres
         </CustomLink>
+        <ButtonBack />
       </div>
     </div>
   )

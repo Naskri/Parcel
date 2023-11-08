@@ -3,14 +3,14 @@ import { AddPackagePointSchemaType } from '../AddAddressPoint/AddPackagePointSch
 import { toast } from 'react-toastify'
 import { addCustomerPoint } from './api'
 
-export type AddPoint = {
+export type AddressSupabaseData = {
   user_id: string
   custom_id: string
 }
 
 export const useAddPoint = () => {
   const { mutate: addPoint, isLoading } = useMutation({
-    mutationFn: (data: AddPackagePointSchemaType & AddPoint) => addCustomerPoint(data),
+    mutationFn: (data: AddPackagePointSchemaType & AddressSupabaseData) => addCustomerPoint(data),
     onSuccess: () => {
       toast.success('Dodano adres!')
     },
