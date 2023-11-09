@@ -14,7 +14,7 @@ export const MainNavigation = () => {
 
   return (
     <>
-      <Navigation title="Witaj!" />
+      <Navigation title={t('navigation.homeTitle')} />
       <ul className={styled.list}>
         <li className={styled.item}>
           <CustomLink path="/dashboard/time" modifier="dashboard">

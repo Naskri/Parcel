@@ -5,6 +5,7 @@ import styled from './Time.module.css'
 import { useUser } from '../../features/Authentication/useUser'
 import { useStartWork } from '../../features/Account/Work/useStartWork'
 import { useEndWork } from '../../features/Account/Work/useEndWork'
+import { ButtonBack } from '../../features/UI/Button/ButtonBack/ButtonBack'
 
 export const Time = () => {
   const { t } = useTranslation()
@@ -17,6 +18,10 @@ export const Time = () => {
   return (
     <>
       <Navigation title={t('navigation.work-time')} />
+      <div className={styled.action}>
+        <ButtonBack />
+      </div>
+
       <div className={styled.time}>
         <p>{t('work-time.status-title')}</p>
         <p>

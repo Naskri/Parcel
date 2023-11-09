@@ -42,6 +42,14 @@ export const AddPackageSchema = z.object({
     .refine((value) => Number(value) <= MAX_PACKAGE_WEIGHT, {
       message: `Maksimum ${MAX_PACKAGE_WEIGHT} kg`,
     }),
+  cash: z
+    .string()
+    .nullable()
+    .refine((value) => !isNaN(Number(value)), {
+      message: 'Musi być liczbą jak coś',
+      path: ['cash'],
+    })
+    .transform((value) => (isNaN(Number(value)) || value === '0' ? null : value)),
 })
 
 export type AddPackageSchemaType = z.infer<typeof AddPackageSchema>

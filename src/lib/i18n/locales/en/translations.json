@@ -5,7 +5,8 @@
     "auth-pin": "Unlock application",
     "forgot-pin": "Reset PIN",
     "update-pin": "Update PIN",
-    "add-point": "Add address"
+    "add-point": "Add address",
+    "confirm-point": "Confirm data"
   },
   "layout": {
     "title": "Delivery experts!"
@@ -28,6 +29,7 @@
     "heightLabel": "Height",
     "lengthLabel": "Length",
     "weightLabel": "Weight",
+    "cashLabel": "Money",
     "help": "Need help?",
     "helpRegister": "New to Parcel?",
     "helpLogin": "Already in Parcel?"
@@ -63,7 +65,11 @@
     "route": "Route",
     "packages": "Add packages",
     "plan-route": "Plan your route",
-    "map": "Point on the map"
+    "map": "Point on the map",
+    "homeTitle": "Welcome!",
+    "packagesTitle": "Packages",
+    "newAddressTitle": "New address",
+    "newPackageTitle": "New package"
   },
   "work-time": {
     "status-title": "Status:",

@@ -5,6 +5,7 @@ import styled from './Map.module.css'
 import { LeafletMouseEvent } from 'leaflet'
 import { usePosition } from '../../hooks/usePosition'
 import { CustomLink } from '../../features/UI/CustomLink/CustomLink'
+import { useTranslation } from 'react-i18next'
 
 export type GeoLocation = {
   latitude: number
@@ -42,6 +43,7 @@ const MapClickHandler = ({ onMapClick }: { onMapClick: (event: any) => void }) =
 
 export const Map = () => {
   const { position } = usePosition()
+  const { t } = useTranslation()
 
   const [userPosition, setUserPosition] = useState<GeoLocation>({
     latitude: 52.237049,
@@ -95,7 +97,7 @@ export const Map = () => {
               path={`./../?lat=${userPosition.latitude}&log=${userPosition.longitude}`}
               modifier="primary"
             >
-              Potwierdź dane
+              {t('links.confirm-point')}
             </CustomLink>
           </div>
         )}

@@ -8,7 +8,7 @@ export const Warehouse = () => {
 
   return (
     <>
-      <Navigation title="Magazyn" />
+      <Navigation title={t('navigation.warehouse')} />
       <ul className={styled.list}>
         <li className={styled.item}>
           <CustomLink path="/dashboard/warehouse/packages" modifier="primary">

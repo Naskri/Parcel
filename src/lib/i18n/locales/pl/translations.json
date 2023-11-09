@@ -5,7 +5,8 @@
     "auth-pin": "Odblokuj aplikację",
     "forgot-pin": "Resetuj PIN",
     "update-pin": "Zmień PIN",
-    "add-point": "Dodaj adres"
+    "add-point": "Dodaj adres",
+    "confirm-point": "Potwierdź dane"
   },
   "layout": {
     "title": "Eksperci doręczania!"
@@ -28,6 +29,7 @@
     "heightLabel": "Wysokość",
     "lengthLabel": "Długość",
     "weightLabel": "Waga",
+    "cashLabel": "Pobranie",
     "quantityLabel": "Ilość",
     "help": "Potrzebujesz pomocy?",
     "helpRegister": "Nie masz jeszcze konta w serwisie Parcel?",
@@ -64,7 +66,11 @@
     "route": "Trasa",
     "packages": "Dodaj paczki",
     "plan-route": "Planuj trasę",
-    "map": "Wskaż na mapie"
+    "map": "Wskaż na mapie",
+    "homeTitle": "Witaj!",
+    "packagesTitle": "Paczki",
+    "newAddressTitle": "Nowy adres",
+    "newPackageTitle": "Nowa paczka"
   },
   "work-time": {
     "status-title": "Status:",

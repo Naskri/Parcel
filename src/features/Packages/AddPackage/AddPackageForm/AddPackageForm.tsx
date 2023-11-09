@@ -21,6 +21,7 @@ export const AddPackageForm = ({ id }: AddPackageFormProps) => {
     reset,
   } = useForm<AddPackageSchemaType>({
     resolver: zodResolver(AddPackageSchema),
+    defaultValues: { cash: '0' },
   })
 
   const submitHandler = (data: AddPackageSchemaType) => {
@@ -64,6 +65,14 @@ export const AddPackageForm = ({ id }: AddPackageFormProps) => {
           {...register('weight')}
         />
       </div>
+      <InputContainer
+        id="cash"
+        label="form.cashLabel"
+        type={InputTypes.text}
+        required
+        error={errors?.cash?.message}
+        {...register('cash')}
+      />
 
       <Button modifier="primary">Dodaj paczkę do adresu</Button>
     </form>
