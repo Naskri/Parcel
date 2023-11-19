@@ -4,6 +4,7 @@ import { AddPackageSchemaType } from '../AddPackage/AddPackageForm/AddPackageSch
 import { PackageSupabaseData } from '../AddPackage/AddPackageForm/services/useAddPackage'
 import { useLocalStorage } from 'usehooks-ts'
 import { AddressSupabaseData } from '../AddressPoint/services/useAddPoint'
+import { toast } from 'react-toastify'
 
 export type Packages = AddPackageSchemaType & PackageSupabaseData
 export type Addresses = AddPackagePointSchemaType & AddressSupabaseData
@@ -13,6 +14,7 @@ type PackagesContextState = {
   packages: Packages[]
   addAddress: (address: Addresses) => void
   addPackage: (newPackage: Packages) => void
+  removeAddress: (addressID: string) => void
   existAddress: (id: string | undefined) => Addresses | undefined
   reorderAddressPoints: (dragIndex: number, hoverIndex: number) => void
   getAddressPackages: (addressID: string) => Packages[]
@@ -58,6 +60,13 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
     return addressPackages
   }
 
+  const removeAddress = (addressID: string) => {
+    const newAddresses = addresses.filter((address) => address.custom_id !== addressID)
+
+    setAddresses(newAddresses)
+    toast.success('Succesfuly deleted address')
+  }
+
   return (
     <PackagesContext.Provider
       value={{
@@ -68,6 +77,7 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
         addPackage,
         reorderAddressPoints,
         getAddressPackages,
+        removeAddress,
       }}
     >
       {children}

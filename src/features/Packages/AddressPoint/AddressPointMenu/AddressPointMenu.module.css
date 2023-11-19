@@ -1,0 +1,17 @@
+.menu {
+  background-color: var(--color-white);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  right: 8rem;
+  transform: translate(50%, -50%);
+}
+
+.list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

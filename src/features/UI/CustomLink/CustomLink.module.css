@@ -87,3 +87,17 @@
   height: 100%;
   padding: 1rem;
 }
+
+.custom-link--menu:link,
+.custom-link--menu:visited {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.83rem;
+  color: var(--color-black);
+}
+
+.custom-link--menu:link svg {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
