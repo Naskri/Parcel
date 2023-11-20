@@ -18,6 +18,7 @@ type PackagesContextState = {
   existAddress: (id: string | undefined) => Addresses | undefined
   reorderAddressPoints: (dragIndex: number, hoverIndex: number) => void
   getAddressPackages: (addressID: string) => Packages[]
+  isAddressHasCashPackage: (addressID: string) => boolean
 }
 
 export const PackagesContext = createContext<PackagesContextState | null>(null)
@@ -36,6 +37,7 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
 
   const addPackage = (newPackage: Packages) => {
     setPackages((prev) => [...prev, newPackage])
+    toast.success('Succesfully added package')
   }
 
   const existAddress = (id: string | undefined) => {
@@ -67,6 +69,13 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
     toast.success('Succesfuly deleted address')
   }
 
+  const isAddressHasCashPackage = (addressID: string) => {
+    const addressPackages = getAddressPackages(addressID)
+    const isCashPackage = addressPackages.some((pack) => pack.cash)
+
+    return isCashPackage
+  }
+
   return (
     <PackagesContext.Provider
       value={{
@@ -78,6 +87,7 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
         reorderAddressPoints,
         getAddressPackages,
         removeAddress,
+        isAddressHasCashPackage,
       }}
     >
       {children}

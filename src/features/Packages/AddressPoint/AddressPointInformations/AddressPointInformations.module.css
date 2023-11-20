@@ -1,0 +1,12 @@
+.title {
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 1rem 0;
+}
+
+.list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

@@ -2,7 +2,6 @@ import { usePackagesContext } from '../PackagesContext/PackagesContext'
 
 import styled from './PackagesPlanning.module.css'
 import { DnDList } from '../../UI/DnD/DnDList'
-import { Button } from '../../UI/Button/Button'
 import { ButtonBack } from '../../UI/Button/ButtonBack/ButtonBack'
 
 export const PackagesPlanning = () => {
@@ -19,7 +18,6 @@ export const PackagesPlanning = () => {
       <div className={styled.planning__list}>
         <DnDList />
       </div>
-      <Button modifier="primary">Potwierdź i zacznij pracę!</Button>
     </div>
   )
 }

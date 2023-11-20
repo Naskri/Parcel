@@ -90,3 +90,12 @@
 .button--menu svg {
   color: var(--color-primary);
 }
+
+.button--summary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  align-self: center;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}

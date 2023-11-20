@@ -97,7 +97,8 @@
   color: var(--color-black);
 }
 
-.custom-link--menu:link svg {
+.custom-link--menu:link svg,
+.custom-link--menu:visited svg {
   font-size: 1.25rem;
   color: var(--color-primary);
 }

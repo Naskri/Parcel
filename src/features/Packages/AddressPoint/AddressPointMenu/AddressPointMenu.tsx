@@ -32,7 +32,7 @@ export const AddressPointMenu = ({ id }: AddressPointMenuProps) => {
           </CustomLink>
         </li>
         <li>
-          <CustomLink path={`${id}`} modifier="menu">
+          <CustomLink path={`../address/${id}`} modifier="menu">
             <MdGridView /> <span>Podsumowanie</span>
           </CustomLink>
         </li>

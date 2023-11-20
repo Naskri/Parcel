@@ -9,7 +9,7 @@ type AddressPointProps = {
   data: Addresses
   index?: number
   selectedAddress?: string | null
-  changeAddress: (id: string) => void
+  changeAddress?: (id: string) => void
 }
 
 export const AddressPoint = ({
@@ -18,7 +18,8 @@ export const AddressPoint = ({
   selectedAddress,
   changeAddress,
 }: AddressPointProps) => {
-  const { reorderAddressPoints, getAddressPackages } = usePackagesContext()
+  const { reorderAddressPoints, getAddressPackages, isAddressHasCashPackage } = usePackagesContext()
+  const hasCODPackages = isAddressHasCashPackage(data.custom_id)
   const packages = getAddressPackages(data.custom_id)
 
   const [, ref] = useDrag({
@@ -65,7 +66,7 @@ export const AddressPoint = ({
       <p>{data.customer}</p>
 
       <div className={styled.address__summary}>
-        <span>COD</span>
+        {hasCODPackages && <span className={styled.address__cod}>COD</span>}
         {packages.length > 0 && <div className={styled.packages}>{packages.length}</div>}
       </div>
     </div>
