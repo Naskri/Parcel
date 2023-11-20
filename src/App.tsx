@@ -20,6 +20,9 @@ import { NewAddressPoint } from './pages/NewAddressPoint/NewAddressPoint'
 import { PackagesContextProvider } from './features/Packages/PackagesContext/PackagesContext'
 import { PlanWork } from './pages/PlanWork/PlanWork'
 import { AddressInformations } from './pages/AddressInformations/AddressInformations'
+import { Work } from './pages/Work/Work'
+import { Delivery } from './pages/Delivery/Delivery'
+import { Search } from './pages/Search/Search'
 
 export const App = () => {
   return (
@@ -50,6 +53,9 @@ export const App = () => {
             <Route path="warehouse/work" element={<PlanWork />} />
             <Route path="modify" element={<PlanWork />} />
             <Route path="address/:id" element={<AddressInformations />} />
+            <Route path="address/:id/delivery/:packId" element={<Delivery />} />
+            <Route path="work" element={<Work />} />
+            <Route path="search" element={<Search />} />
           </Route>
         </Route>
       </Routes>

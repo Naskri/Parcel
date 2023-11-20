@@ -19,6 +19,7 @@ type PackagesContextState = {
   reorderAddressPoints: (dragIndex: number, hoverIndex: number) => void
   getAddressPackages: (addressID: string) => Packages[]
   isAddressHasCashPackage: (addressID: string) => boolean
+  filterAddresses: (search: string) => Addresses[]
 }
 
 export const PackagesContext = createContext<PackagesContextState | null>(null)
@@ -76,6 +77,14 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
     return isCashPackage
   }
 
+  const filterAddresses = (search: string) => {
+    const filtered = addresses.filter((address) =>
+      address.name.toLowerCase().includes(search.toLowerCase())
+    )
+
+    return filtered
+  }
+
   return (
     <PackagesContext.Provider
       value={{
@@ -88,6 +97,7 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
         getAddressPackages,
         removeAddress,
         isAddressHasCashPackage,
+        filterAddresses,
       }}
     >
       {children}

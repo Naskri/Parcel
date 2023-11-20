@@ -8,6 +8,7 @@ import { AddressPointMenu } from './AddressPointMenu/AddressPointMenu'
 type AddressPointProps = {
   data: Addresses
   index?: number
+  isWork?: boolean
   selectedAddress?: string | null
   changeAddress?: (id: string) => void
 }
@@ -16,6 +17,7 @@ export const AddressPoint = ({
   data,
   index,
   selectedAddress,
+  isWork,
   changeAddress,
 }: AddressPointProps) => {
   const { reorderAddressPoints, getAddressPackages, isAddressHasCashPackage } = usePackagesContext()
@@ -58,7 +60,9 @@ export const AddressPoint = ({
             <AiOutlineMore />
           </Button>
         )}
-        {data.custom_id === selectedAddress && <AddressPointMenu id={data.custom_id} />}
+        {data.custom_id === selectedAddress && (
+          <AddressPointMenu isWork={isWork} id={data.custom_id} />
+        )}
       </div>
       <p>
         {data.zipCode} {data.city}

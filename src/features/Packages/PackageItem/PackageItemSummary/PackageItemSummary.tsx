@@ -60,7 +60,7 @@ export const PackageItemSummary = ({ address, pack }: PackageItemSummaryProps) =
         </p>
       )}
       <div className={styled.action}>
-        <CustomLink path="/" modifier="primary">
+        <CustomLink path={`delivery/${pack.package_id}`} modifier="primary">
           Doręczaj
         </CustomLink>
       </div>
