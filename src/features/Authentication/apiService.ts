@@ -18,8 +18,17 @@ export const signup = async ({ email, password, pin }: RegisterProps) => {
     },
   })
 
+  const { error: customTableUserError } = await supabase
+    .from('users')
+    .insert([{ email, user_id: data.user?.id }])
+    .select()
+
   if (error) {
     throw new Error(error.message)
+  }
+
+  if (customTableUserError) {
+    throw new Error(customTableUserError.message)
   }
 
   return data

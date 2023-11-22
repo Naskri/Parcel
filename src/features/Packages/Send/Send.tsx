@@ -4,23 +4,44 @@ import styled from './Send.module.css'
 import { SendSchema, SendSchemaType } from './SendSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '../../UI/Button/Button'
-import { toast } from 'react-toastify'
+import { getUserByEmail } from './services/api'
+import { useState } from 'react'
+import { usePackagesContext } from '../PackagesContext/PackagesContext'
+import { useNavigate } from 'react-router'
+import { useSearchParams } from 'react-router-dom'
 
 export const Send = () => {
+  const [searchParams] = useSearchParams()
+  const [error, setError] = useState('')
+  const { hangOverAddress } = usePackagesContext()
+  const navigate = useNavigate()
+  const address = searchParams.get('address')
+
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm<SendSchemaType>({
     resolver: zodResolver(SendSchema),
+    defaultValues: { address: address || '' },
   })
 
   const submitHandler = async (data: SendSchemaType) => {
     try {
-      return data
+      setError('')
+
+      const user = await getUserByEmail(data.email)
+
+      if (!user) {
+        setError('No user with email found.')
+        return
+      }
+
+      hangOverAddress(user, data.address)
+      navigate('/dashboard')
     } catch (err) {
       if (err instanceof Error) {
-        toast.error(err.message)
+        setError(err.message)
       }
     }
   }
@@ -37,15 +58,16 @@ export const Send = () => {
           {...register('email')}
         />
         <InputContainer
-          id="pack"
-          label="form.packLabel"
+          id="address"
+          label="form.adresLabel"
           type={InputTypes.text}
           required
-          error={errors?.pack?.message}
-          {...register('pack')}
+          error={errors?.address?.message}
+          {...register('address')}
         />
         <Button modifier="form">Przekaż</Button>
       </form>
+      {error && <p className={styled.error}>{error}</p>}
     </div>
   )
 }

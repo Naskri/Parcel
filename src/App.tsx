@@ -71,7 +71,7 @@ export const App = () => {
             />
             <Route path="work" element={<Work />} />
             <Route path="search" element={<Search />} />
-            <Route path="send/:id" element={<SendPackages />} />
+            <Route path="send" element={<SendPackages />} />
           </Route>
         </Route>
       </Routes>

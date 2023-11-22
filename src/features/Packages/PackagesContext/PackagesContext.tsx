@@ -22,6 +22,7 @@ type PackagesContextState = {
   filterAddresses: (search: string) => Addresses[]
   getPackageByID: (packID: string) => Packages | undefined
   setPackageErrorStatus: (packId: string, errorStatus: string) => void
+  hangOverAddress: (userId: string, addressId: string) => Addresses
 }
 
 export const PackagesContext = createContext<PackagesContextState | null>(null)
@@ -107,6 +108,23 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
     setPackages(newPackages)
   }
 
+  const hangOverAddress = (userId: string, addressId: string) => {
+    const address = existAddress(addressId)
+
+    if (!address) {
+      throw new Error('No address found with this id')
+    }
+
+    const mappedAddresses = addresses.map((address) =>
+      address.custom_id === addressId ? { ...address, user_id: userId } : address
+    )
+
+    const newAddresses = mappedAddresses.filter((address) => address.custom_id !== addressId)
+
+    setAddresses(newAddresses)
+    toast.success('Przekazano adres')
+  }
+
   return (
     <PackagesContext.Provider
       value={{
@@ -122,6 +140,7 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
         filterAddresses,
         getPackageByID,
         setPackageErrorStatus,
+        hangOverAddress,
       }}
     >
       {children}

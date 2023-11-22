@@ -40,7 +40,7 @@ export const AddressPointMenu = ({ id, isWork }: AddressPointMenuProps) => {
         {isWork && (
           <li>
             <CustomLink path={`../address/${id}`} modifier="menu">
-              <MdGridView /> <span>Przekaż paczki</span>
+              <MdGridView /> <span>Przekaż adres</span>
             </CustomLink>
           </li>
         )}

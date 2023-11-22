@@ -31,6 +31,7 @@
     "weightLabel": "Waga",
     "cashLabel": "Pobranie",
     "packLabel": "Numer paczki",
+    "adresLabel": "Nazwa adresu",
     "quantityLabel": "Ilość",
     "help": "Potrzebujesz pomocy?",
     "helpRegister": "Nie masz jeszcze konta w serwisie Parcel?",

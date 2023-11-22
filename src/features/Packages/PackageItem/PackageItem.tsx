@@ -30,7 +30,6 @@ export const PackageItem = ({ address, pack, delivery }: PackageItemProps) => {
           {isShowingMore ? 'Hide' : 'Show more'}
         </Button>
       )}
-
       {pack && isShowingMore && <PackageItemSummary address={address} pack={pack} />}
     </div>
   )
