@@ -1,4 +1,5 @@
 import { Navigation } from '../../features/Layout/Navigation/Navigation'
+import { DeliveryPackage } from '../../features/Packages/DeliveryPackage/DeliveryPackage'
 import styled from './Delivery.module.css'
 
 export const Delivery = () => {
@@ -6,7 +7,7 @@ export const Delivery = () => {
     <>
       <Navigation title="Doręczaj" />
       <div className={styled.delivery}>
-        <h1>ręczajDo</h1>
+        <DeliveryPackage />
       </div>
     </>
   )

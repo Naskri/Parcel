@@ -50,6 +50,7 @@ export const AddPackageSchema = z.object({
       path: ['cash'],
     })
     .transform((value) => (isNaN(Number(value)) || value === '0' ? null : value)),
+  errorStatus: z.string().optional().nullable(),
 })
 
 export type AddPackageSchemaType = z.infer<typeof AddPackageSchema>

@@ -20,6 +20,8 @@ type PackagesContextState = {
   getAddressPackages: (addressID: string) => Packages[]
   isAddressHasCashPackage: (addressID: string) => boolean
   filterAddresses: (search: string) => Addresses[]
+  getPackageByID: (packID: string) => Packages | undefined
+  setPackageErrorStatus: (packId: string, errorStatus: string) => void
 }
 
 export const PackagesContext = createContext<PackagesContextState | null>(null)
@@ -39,6 +41,14 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
   const addPackage = (newPackage: Packages) => {
     setPackages((prev) => [...prev, newPackage])
     toast.success('Succesfully added package')
+  }
+
+  const getPackageByID = (packID: string) => {
+    const pack = packages.find((pack) => pack.package_id === packID)
+
+    if (!pack) return
+
+    return pack
   }
 
   const existAddress = (id: string | undefined) => {
@@ -85,6 +95,18 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
     return filtered
   }
 
+  const setPackageErrorStatus = (packId: string, errorStatus: string) => {
+    const pack = getPackageByID(packId)
+
+    if (!pack) return
+
+    const newPackages = packages.map((pack) =>
+      pack.package_id === packId ? { ...pack, address_id: null, errorStatus } : pack
+    )
+
+    setPackages(newPackages)
+  }
+
   return (
     <PackagesContext.Provider
       value={{
@@ -98,6 +120,8 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
         removeAddress,
         isAddressHasCashPackage,
         filterAddresses,
+        getPackageByID,
+        setPackageErrorStatus,
       }}
     >
       {children}

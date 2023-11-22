@@ -1,0 +1,11 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.action {
+  margin-top: auto;
+  display: flex;
+  gap: 0.125rem;
+}

@@ -25,7 +25,7 @@ export const AddPackageForm = ({ id }: AddPackageFormProps) => {
   })
 
   const submitHandler = (data: AddPackageSchemaType) => {
-    addPackage({ ...data, address_id: id, package_id: Math.random().toString() })
+    addPackage({ ...data, address_id: id, package_id: Math.random().toString(), errorStatus: null })
     reset()
   }
 

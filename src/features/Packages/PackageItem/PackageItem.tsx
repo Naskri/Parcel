@@ -6,13 +6,14 @@ import { PackageItemSummary } from './PackageItemSummary/PackageItemSummary'
 
 type PackageItemProps = {
   address: Addresses
-  pack: Packages
+  pack?: Packages
+  delivery?: boolean
 }
 
-export const PackageItem = ({ address, pack }: PackageItemProps) => {
+export const PackageItem = ({ address, pack, delivery }: PackageItemProps) => {
   const [isShowingMore, setIsShowingMore] = useState(false)
   return (
-    <div className={styled.container}>
+    <div className={`${styled.container} ${delivery && styled['container--delivery']}`}>
       <div className={styled.informations}>
         <div>
           <strong>{address.name}</strong>
@@ -20,15 +21,17 @@ export const PackageItem = ({ address, pack }: PackageItemProps) => {
             {address.zipCode} {address.city}
           </p>
           <p className={styled.data}>{address.customer}</p>
-          {pack.cash && <strong>{pack.cash}zł</strong>}
+          {pack?.cash && <strong>{pack.cash}zł</strong>}
         </div>
-        <p className={styled.data}>{pack.package_id}</p>
+        <p className={styled.data}>{pack?.package_id}</p>
       </div>
-      <Button onClick={() => setIsShowingMore((prev) => !prev)} modifier="summary">
-        {isShowingMore ? 'Hide' : 'Show more'}
-      </Button>
+      {!delivery && (
+        <Button onClick={() => setIsShowingMore((prev) => !prev)} modifier="summary">
+          {isShowingMore ? 'Hide' : 'Show more'}
+        </Button>
+      )}
 
-      {isShowingMore && <PackageItemSummary address={address} pack={pack} />}
+      {pack && isShowingMore && <PackageItemSummary address={address} pack={pack} />}
     </div>
   )
 }

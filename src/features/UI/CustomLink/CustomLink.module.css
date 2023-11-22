@@ -17,7 +17,9 @@
 .custom-link--forgot:link,
 .custom-link--forgot:visited,
 .custom-link--primary:link,
-.custom-link--primary:visited {
+.custom-link--primary:visited,
+.custom-link--cancel:link,
+.custom-link--cancel:visited {
   color: var(--color-white);
   padding: 0.75rem 0;
   width: 100%;
@@ -35,6 +37,17 @@
   background-color: var(--color-primary);
   display: flex;
   align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.custom-link--cancel:link,
+.custom-link--cancel:visited {
+  padding: 0.75rem 1rem;
+  background-color: var(--color-error);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 

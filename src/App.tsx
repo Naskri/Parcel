@@ -23,6 +23,11 @@ import { AddressInformations } from './pages/AddressInformations/AddressInformat
 import { Work } from './pages/Work/Work'
 import { Delivery } from './pages/Delivery/Delivery'
 import { Search } from './pages/Search/Search'
+import { SendPackages } from './pages/SendPackages/SendPackages'
+import { DeliveryIntro } from './pages/Delivery/DeliveryIntro/DeliveryIntro'
+import { DeliveryChoice } from './pages/Delivery/DeliveryChoice/DeliveryChoice'
+import { DeliveryNotSuccesful } from './pages/Delivery/DeliveryNotSuccesful/DeliveryNotSuccesful'
+import { DeliverySuccesful } from './pages/Delivery/DeliverySuccesful/DeliverySuccesful'
 
 export const App = () => {
   return (
@@ -53,9 +58,20 @@ export const App = () => {
             <Route path="warehouse/work" element={<PlanWork />} />
             <Route path="modify" element={<PlanWork />} />
             <Route path="address/:id" element={<AddressInformations />} />
-            <Route path="address/:id/delivery/:packId" element={<Delivery />} />
+            <Route path="address/:id/delivery" element={<Delivery />} />
+            <Route path="address/:id/delivery/:packId" element={<DeliveryIntro />} />
+            <Route path="address/:id/delivery/:packId/choice" element={<DeliveryChoice />} />
+            <Route
+              path="address/:id/delivery/:packId/choice/wrong"
+              element={<DeliveryNotSuccesful />}
+            />
+            <Route
+              path="address/:id/delivery/:packId/choice/correct"
+              element={<DeliverySuccesful />}
+            />
             <Route path="work" element={<Work />} />
             <Route path="search" element={<Search />} />
+            <Route path="send/:id" element={<SendPackages />} />
           </Route>
         </Route>
       </Routes>

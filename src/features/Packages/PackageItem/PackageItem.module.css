@@ -3,6 +3,11 @@
   flex-direction: column;
 }
 
+.container--delivery {
+  background-color: var(--color-white);
+  padding: 1rem;
+}
+
 .informations {
   display: flex;
   align-items: center;

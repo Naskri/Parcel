@@ -4,8 +4,8 @@ import { AddPackageSchemaType } from '../AddPackageSchema'
 import { addPackage } from './api'
 
 export type PackageSupabaseData = {
-  package_id: string
-  address_id: string
+  package_id: string | null
+  address_id: string | null
 }
 
 export const useAddPackage = () => {

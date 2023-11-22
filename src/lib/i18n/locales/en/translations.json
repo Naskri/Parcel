@@ -30,6 +30,7 @@
     "lengthLabel": "Length",
     "weightLabel": "Weight",
     "cashLabel": "Money",
+    "packLabel": "Pack number",
     "help": "Need help?",
     "helpRegister": "New to Parcel?",
     "helpLogin": "Already in Parcel?"

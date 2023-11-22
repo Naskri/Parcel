@@ -30,11 +30,20 @@ export const AddressPointMenu = ({ id, isWork }: AddressPointMenuProps) => {
             </CustomLink>
           </li>
         )}
-        <li>
-          <CustomLink path={`../address/${id}`} modifier="menu">
-            <MdGridView /> <span>Podsumowanie</span>
-          </CustomLink>
-        </li>
+        {isWork && (
+          <li>
+            <CustomLink path={`../address/${id}`} modifier="menu">
+              <MdGridView /> <span>Podsumowanie</span>
+            </CustomLink>
+          </li>
+        )}
+        {isWork && (
+          <li>
+            <CustomLink path={`../address/${id}`} modifier="menu">
+              <MdGridView /> <span>Przekaż paczki</span>
+            </CustomLink>
+          </li>
+        )}
       </ul>
     </div>
   )
