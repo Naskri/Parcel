@@ -90,5 +90,9 @@
     "user-invalid": "No user with provided email found.",
     "address-invalid": "No address found with provided ID.",
     "success": "Address transferred successfully."
+  },
+  "search": {
+    "title": "Search",
+    "heading": "Search address by category"
   }
 }

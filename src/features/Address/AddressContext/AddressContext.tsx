@@ -17,7 +17,7 @@ type AddressContextState = {
   reorderAddressPoints: (dragIndex: number, hoverIndex: number) => void
   removeAddress: (addressID: string) => void
   isAddressHasCashPackage: (addressID: string) => boolean
-  filterAddresses: (search: string) => Addresses[]
+  filterAddresses: (search: string, searchCategory: keyof Addresses) => Addresses[]
   hangOverAddress: (userId: string, addressId: string) => void
 }
 
@@ -69,9 +69,9 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
     return isCashPackage
   }
 
-  const filterAddresses = (search: string) => {
+  const filterAddresses = (search: string, searchCategory: keyof Addresses) => {
     const filtered = addresses.filter((address) =>
-      address.name.toLowerCase().includes(search.toLowerCase())
+      address[searchCategory].toLowerCase().includes(search.toLowerCase())
     )
 
     return filtered

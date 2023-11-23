@@ -2,3 +2,8 @@
   flex-grow: 1;
   padding: 1rem;
 }
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}

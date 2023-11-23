@@ -1,15 +1,18 @@
 import { useState } from 'react'
 
-import { useAddressContext } from '../../../Address/AddressContext/AddressContext'
+import { Addresses, useAddressContext } from '../../../Address/AddressContext/AddressContext'
 import { AddressPoint } from '../../../Address/AddressPoint/AddressPoint'
 
 type PackagesListProps = {
   isWork?: boolean
   search?: string
+  searchCategory?: keyof Addresses
 }
 
-export const PackagesList = ({ isWork, search }: PackagesListProps) => {
+export const PackagesList = ({ isWork, search, searchCategory }: PackagesListProps) => {
   const { addresses, filterAddresses } = useAddressContext()
+
+  const validSearch = search && searchCategory
 
   const [selectedAddress, setSelectedAddress] = useState<string | null>(null)
 
@@ -17,7 +20,7 @@ export const PackagesList = ({ isWork, search }: PackagesListProps) => {
     setSelectedAddress(id === selectedAddress ? null : id)
   }
 
-  return (!search ? addresses : filterAddresses(search)).map((address) => (
+  return (!validSearch ? addresses : filterAddresses(search, searchCategory)).map((address) => (
     <AddressPoint
       key={address.custom_id}
       data={address}

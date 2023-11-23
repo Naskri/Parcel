@@ -91,5 +91,9 @@
     "user-invalid": "Nie znaleziono użytkownika z podanym adresem email.",
     "address-invalid": "Nie znaleziono adresu o takim ID.",
     "success": "Pomyślnie przekazano adres."
+  },
+  "search": {
+    "title": "Wyszukiwarka",
+    "heading": "Wyszukaj adres po kategorii"
   }
 }
