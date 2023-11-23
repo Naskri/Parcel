@@ -1,11 +1,10 @@
-import { usePackagesContext } from '../PackagesContext/PackagesContext'
-
 import styled from './PackagesPlanning.module.css'
 import { DnDList } from '../../UI/DnD/DnDList'
 import { ButtonBack } from '../../UI/Button/ButtonBack/ButtonBack'
+import { useAddressContext } from '../../Address/AddressContext/AddressContext'
 
 export const PackagesPlanning = () => {
-  const { addresses } = usePackagesContext()
+  const { addresses } = useAddressContext()
 
   return (
     <div className={styled.planning}>

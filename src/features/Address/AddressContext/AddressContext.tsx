@@ -19,6 +19,7 @@ type AddressContextState = {
   isAddressHasCashPackage: (addressID: string) => boolean
   filterAddresses: (search: string, searchCategory: keyof Addresses) => Addresses[]
   hangOverAddress: (userId: string, addressId: string) => void
+  reverseAddresses: () => void
 }
 
 export const AddressContext = createContext<AddressContextState | null>(null)
@@ -92,6 +93,12 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
     toast.success(t('send.success'))
   }
 
+  const reverseAddresses = () => {
+    const reversedAddresses = addresses.reverse()
+
+    setAddresses(reversedAddresses)
+  }
+
   return (
     <AddressContext.Provider
       value={{
@@ -103,6 +110,7 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
         reorderAddressPoints,
         removeAddress,
         hangOverAddress,
+        reverseAddresses,
       }}
     >
       {children}

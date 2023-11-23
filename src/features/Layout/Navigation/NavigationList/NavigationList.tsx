@@ -4,10 +4,13 @@ import { useTranslation } from 'react-i18next'
 import { CustomLink } from '../../../UI/CustomLink/CustomLink'
 import { Button } from '../../../UI/Button/Button'
 import { useSignout } from '../../../Authentication/useSignout'
+import { BsFillHousesFill } from 'react-icons/bs'
+import { useAddressContext } from '../../../Address/AddressContext/AddressContext'
 
 export const NavigationList = () => {
   const { t } = useTranslation()
   const { signout } = useSignout()
+  const { reverseAddresses } = useAddressContext()
 
   return (
     <ul className={styled['nav-list']}>
@@ -18,6 +21,12 @@ export const NavigationList = () => {
           </CustomLink>
         </li>
       ))}
+      <li>
+        <Button modifier="navigation" onClick={reverseAddresses}>
+          <BsFillHousesFill className={styled['nav-item-icon']} />
+          <span>{t('navigation.item7title')}</span>
+        </Button>
+      </li>
       <Button modifier="primary" onClick={signout}>
         {t('navigation.logout')}
       </Button>

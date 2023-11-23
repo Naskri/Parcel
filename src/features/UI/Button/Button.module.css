@@ -115,3 +115,23 @@
   padding: 1rem;
   font-weight: 500;
 }
+
+.button--navigation {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  font-size: 1rem;
+}
+
+.button--navigation span {
+  color: var(--color-text);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.button--navigation:hover span {
+  transform: translateX(1rem);
+}

@@ -60,10 +60,6 @@
   padding: 0.25rem 0;
 }
 
-.custom-link--navigation span {
-  transition: 0.3s;
-}
-
 .custom-link--navigation:hover span {
   transform: translateX(1rem);
 }
