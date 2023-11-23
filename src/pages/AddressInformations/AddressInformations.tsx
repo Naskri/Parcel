@@ -1,5 +1,5 @@
+import { AddressPointInformations } from '../../features/Address/AddressPoint/AddressPointInformations/AddressPointInformations'
 import { Navigation } from '../../features/Layout/Navigation/Navigation'
-import { AddressPointInformations } from '../../features/Packages/AddressPoint/AddressPointInformations/AddressPointInformations'
 import { ButtonBack } from '../../features/UI/Button/ButtonBack/ButtonBack'
 
 import styled from './AddressInformations.module.css'

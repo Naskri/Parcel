@@ -31,7 +31,7 @@
     "weightLabel": "Weight",
     "cashLabel": "Money",
     "packLabel": "Pack number",
-    "adresLabel": "Address name",
+    "adresLabel": "Address ID",
     "help": "Need help?",
     "helpRegister": "New to Parcel?",
     "helpLogin": "Already in Parcel?"
@@ -46,7 +46,9 @@
     "pinRequired": "PIN is required!",
     "pinLength": "PIN must be 4 numbers!",
     "pinInvalid": "PIN is invalid!",
-    "pinNotMatch": "PIN not match!"
+    "pinNotMatch": "PIN not match!",
+    "addressIDRequired": "Address ID is required.",
+    "addressIDInvalid": "Address ID is invalid, UUID format."
   },
   "success": {
     "register": "Confirm account on email!",
@@ -57,7 +59,7 @@
   "navigation": {
     "item1title": "Search",
     "item2title": "Statistics",
-    "item3title": "Hand over the parcels",
+    "item3title": "Hand over the address",
     "item4title": "Delivery attempted",
     "item5title": "Modify address points",
     "item6title": "Home",
@@ -82,5 +84,11 @@
     "time-end-title": "Work end date and time:",
     "button-end": "Report job completion",
     "button-start": "Report job start"
+  },
+  "send": {
+    "title": "Hand over address",
+    "user-invalid": "No user with provided email found.",
+    "address-invalid": "No address found with provided ID.",
+    "success": "Address transferred successfully."
   }
 }

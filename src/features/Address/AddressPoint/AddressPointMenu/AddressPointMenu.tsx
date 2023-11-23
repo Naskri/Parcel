@@ -1,6 +1,6 @@
 import { Button } from '../../../UI/Button/Button'
 import { CustomLink } from '../../../UI/CustomLink/CustomLink'
-import { usePackagesContext } from '../../PackagesContext/PackagesContext'
+import { useAddressContext } from '../../AddressContext/AddressContext'
 import styled from './AddressPointMenu.module.css'
 import { AiOutlineDelete } from 'react-icons/ai'
 import { IoAddOutline } from 'react-icons/io5'
@@ -12,7 +12,7 @@ type AddressPointMenuProps = {
 }
 
 export const AddressPointMenu = ({ id, isWork }: AddressPointMenuProps) => {
-  const { removeAddress } = usePackagesContext()
+  const { removeAddress } = useAddressContext()
   return (
     <div className={styled.menu}>
       <ul className={styled.list}>
@@ -39,7 +39,7 @@ export const AddressPointMenu = ({ id, isWork }: AddressPointMenuProps) => {
         )}
         {isWork && (
           <li>
-            <CustomLink path={`../address/${id}`} modifier="menu">
+            <CustomLink path={`../send?address=${id}`} modifier="menu">
               <MdGridView /> <span>Przekaż adres</span>
             </CustomLink>
           </li>

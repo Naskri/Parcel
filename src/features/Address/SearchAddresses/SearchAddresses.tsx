@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { PackagesList } from '../PackagesList/PackagesList/PackagesList'
 import styled from './SearchAddresses.module.css'
 import { useSearchParams } from 'react-router-dom'
+import { PackagesList } from '../../Packages/PackagesList/PackagesList/PackagesList'
 
 export const SearchAddresses = () => {
   const [search, setSearch] = useState('')

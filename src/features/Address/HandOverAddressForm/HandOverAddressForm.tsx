@@ -1,40 +1,46 @@
 import { useForm } from 'react-hook-form'
-import { InputContainer, InputTypes } from '../../UI/InputContainer/InputContainer'
-import styled from './Send.module.css'
-import { SendSchema, SendSchemaType } from './SendSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Button } from '../../UI/Button/Button'
-import { getUserByEmail } from './services/api'
-import { useState } from 'react'
-import { usePackagesContext } from '../PackagesContext/PackagesContext'
-import { useNavigate } from 'react-router'
 import { useSearchParams } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router'
 
-export const Send = () => {
+import styled from './HandOverAddressForm.module.css'
+import { getUserByEmail } from './services/api'
+import { useAddressContext } from '../AddressContext/AddressContext'
+import {
+  HandOverAddressFormSchema,
+  HandOverAddressFormSchemaType,
+} from './HandOverAddressFormSchema'
+
+import { InputContainer, InputTypes } from '../../UI/InputContainer/InputContainer'
+import { Button } from '../../UI/Button/Button'
+import { useTranslation } from 'react-i18next'
+
+export const HandOverAddressForm = () => {
+  const { hangOverAddress } = useAddressContext()
   const [searchParams] = useSearchParams()
   const [error, setError] = useState('')
-  const { hangOverAddress } = usePackagesContext()
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const address = searchParams.get('address')
 
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<SendSchemaType>({
-    resolver: zodResolver(SendSchema),
+  } = useForm<HandOverAddressFormSchemaType>({
+    resolver: zodResolver(HandOverAddressFormSchema),
     defaultValues: { address: address || '' },
   })
 
-  const submitHandler = async (data: SendSchemaType) => {
+  const submitHandler = async (data: HandOverAddressFormSchemaType) => {
     try {
       setError('')
 
       const user = await getUserByEmail(data.email)
 
       if (!user) {
-        setError('No user with email found.')
-        return
+        return setError(t('send.user-invalid'))
       }
 
       hangOverAddress(user, data.address)
@@ -65,7 +71,7 @@ export const Send = () => {
           error={errors?.address?.message}
           {...register('address')}
         />
-        <Button modifier="form">Przekaż</Button>
+        <Button modifier="form">{t('send.title')}</Button>
       </form>
       {error && <p className={styled.error}>{error}</p>}
     </div>

@@ -31,7 +31,7 @@
     "weightLabel": "Waga",
     "cashLabel": "Pobranie",
     "packLabel": "Numer paczki",
-    "adresLabel": "Nazwa adresu",
+    "adresLabel": "ID adresu",
     "quantityLabel": "Ilość",
     "help": "Potrzebujesz pomocy?",
     "helpRegister": "Nie masz jeszcze konta w serwisie Parcel?",
@@ -47,7 +47,9 @@
     "pinRequired": "PIN jest wymagany!",
     "pinLength": "PIN musi mieć 4 cyfry!",
     "pinInvalid": "PIN jest niepoprawny!",
-    "pinNotMatch": "PIN się nie zgadza!"
+    "pinNotMatch": "PIN się nie zgadza!",
+    "addressIDRequired": "ID adresu jest wymagane.",
+    "addressIDInvalid": "ID adresu jest błędne, format UUID."
   },
   "success": {
     "register": "Potwierdź konto na email!",
@@ -58,7 +60,7 @@
   "navigation": {
     "item1title": "Wyszukiwarka",
     "item2title": "Statystyki",
-    "item3title": "Przekaż paczki",
+    "item3title": "Przekaż adres",
     "item4title": "Próba doręczenia",
     "item5title": "Modyfikuj punkty adresowe",
     "item6title": "Strona główna",
@@ -83,5 +85,11 @@
     "time-end-title": "Data i godzina zakończenia pracy:",
     "button-end": "Zgłoś zakończenie pracy",
     "button-start": "Zgłoś rozpoczęcie pracy"
+  },
+  "send": {
+    "title": "Przekaż adres",
+    "user-invalid": "Nie znaleziono użytkownika z podanym adresem email.",
+    "address-invalid": "Nie znaleziono adresu o takim ID.",
+    "success": "Pomyślnie przekazano adres."
   }
 }

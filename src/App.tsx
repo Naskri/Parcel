@@ -23,11 +23,12 @@ import { AddressInformations } from './pages/AddressInformations/AddressInformat
 import { Work } from './pages/Work/Work'
 import { Delivery } from './pages/Delivery/Delivery'
 import { Search } from './pages/Search/Search'
-import { SendPackages } from './pages/SendPackages/SendPackages'
 import { DeliveryIntro } from './pages/Delivery/DeliveryIntro/DeliveryIntro'
 import { DeliveryChoice } from './pages/Delivery/DeliveryChoice/DeliveryChoice'
 import { DeliveryNotSuccesful } from './pages/Delivery/DeliveryNotSuccesful/DeliveryNotSuccesful'
 import { DeliverySuccesful } from './pages/Delivery/DeliverySuccesful/DeliverySuccesful'
+import { HandOverAddress } from './pages/HandOverAddress/HandOverAddress'
+import { AddressContextProvider } from './features/Address/AddressContext/AddressContext'
 
 export const App = () => {
   return (
@@ -43,7 +44,9 @@ export const App = () => {
             element={
               <ProtectedRoute>
                 <PackagesContextProvider>
-                  <Dashboard />
+                  <AddressContextProvider>
+                    <Dashboard />
+                  </AddressContextProvider>
                 </PackagesContextProvider>
               </ProtectedRoute>
             }
@@ -71,7 +74,7 @@ export const App = () => {
             />
             <Route path="work" element={<Work />} />
             <Route path="search" element={<Search />} />
-            <Route path="send" element={<SendPackages />} />
+            <Route path="send" element={<HandOverAddress />} />
           </Route>
         </Route>
       </Routes>

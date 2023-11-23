@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { AddressPoint } from '../../AddressPoint/AddressPoint'
-import { usePackagesContext } from '../../PackagesContext/PackagesContext'
+
+import { useAddressContext } from '../../../Address/AddressContext/AddressContext'
+import { AddressPoint } from '../../../Address/AddressPoint/AddressPoint'
 
 type PackagesListProps = {
   isWork?: boolean
@@ -8,7 +9,7 @@ type PackagesListProps = {
 }
 
 export const PackagesList = ({ isWork, search }: PackagesListProps) => {
-  const { addresses, filterAddresses } = usePackagesContext()
+  const { addresses, filterAddresses } = useAddressContext()
 
   const [selectedAddress, setSelectedAddress] = useState<string | null>(null)
 

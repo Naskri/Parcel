@@ -1,15 +1,19 @@
 import { useParams } from 'react-router'
-import { usePackagesContext } from '../../PackagesContext/PackagesContext'
+
 import { AddressPoint } from '../AddressPoint'
-import { PackageItem } from '../../PackageItem/PackageItem'
+
 import styled from './AddressPointInformations.module.css'
 import { CustomLink } from '../../../UI/CustomLink/CustomLink'
+import { PackageItem } from '../../../Packages/PackageItem/PackageItem'
+import { usePackagesContext } from '../../../Packages/PackagesContext/PackagesContext'
+import { useAddressContext } from '../../AddressContext/AddressContext'
 
 export const AddressPointInformations = () => {
   const { id } = useParams()
-  const { existAddress, getAddressPackages } = usePackagesContext()
+  const { getAddressPackages } = usePackagesContext()
+  const { getAddress } = useAddressContext()
 
-  const address = existAddress(id)
+  const address = getAddress(id)
 
   if (!address) return
 

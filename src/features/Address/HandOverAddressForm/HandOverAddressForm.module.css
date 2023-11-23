@@ -9,4 +9,5 @@
   text-align: center;
   margin-top: 1rem;
   color: var(--color-error);
+  font-weight: 500;
 }

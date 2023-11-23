@@ -1,9 +1,11 @@
 import { useDrag, useDrop } from 'react-dnd'
 import styled from './AddressPoint.module.css'
-import { Addresses, usePackagesContext } from '../PackagesContext/PackagesContext'
+
 import { Button } from '../../UI/Button/Button'
 import { AiOutlineMore } from 'react-icons/ai'
 import { AddressPointMenu } from './AddressPointMenu/AddressPointMenu'
+import { usePackagesContext } from '../../Packages/PackagesContext/PackagesContext'
+import { Addresses, useAddressContext } from '../AddressContext/AddressContext'
 
 type AddressPointProps = {
   data: Addresses
@@ -20,7 +22,8 @@ export const AddressPoint = ({
   isWork,
   changeAddress,
 }: AddressPointProps) => {
-  const { reorderAddressPoints, getAddressPackages, isAddressHasCashPackage } = usePackagesContext()
+  const { getAddressPackages } = usePackagesContext()
+  const { isAddressHasCashPackage, reorderAddressPoints } = useAddressContext()
   const hasCODPackages = isAddressHasCashPackage(data.custom_id)
   const packages = getAddressPackages(data.custom_id)
 

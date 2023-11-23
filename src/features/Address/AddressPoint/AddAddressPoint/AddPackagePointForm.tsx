@@ -10,9 +10,10 @@ import { useTranslation } from 'react-i18next'
 import { useUser } from '../../../Authentication/useUser'
 import { v4 as uuidv4 } from 'uuid'
 import { useNavigate } from 'react-router'
-import { usePackagesContext } from '../../PackagesContext/PackagesContext'
+
 import { useState } from 'react'
 import { ButtonBack } from '../../../UI/Button/ButtonBack/ButtonBack'
+import { useAddressContext } from '../../AddressContext/AddressContext'
 
 type AddPackagePointFormProps = {
   data?: any
@@ -23,7 +24,7 @@ export const AddPackagePointForm = ({ data }: AddPackagePointFormProps) => {
   const [isLoading, setIsLoading] = useState(false)
   const { user } = useUser()
   const navigate = useNavigate()
-  const { addAddress } = usePackagesContext()
+  const { addAddress } = useAddressContext()
 
   const {
     register,

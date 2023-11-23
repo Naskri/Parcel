@@ -1,16 +1,17 @@
 import { useNavigate, useParams } from 'react-router'
-import { AddressPoint } from '../AddressPoint/AddressPoint'
+
 import styled from './AddPackage.module.css'
 import { useEffect } from 'react'
 import { AddPackageForm } from './AddPackageForm/AddPackageForm'
-import { usePackagesContext } from '../PackagesContext/PackagesContext'
+import { AddressPoint } from '../../Address/AddressPoint/AddressPoint'
+import { useAddressContext } from '../../Address/AddressContext/AddressContext'
 
 export const AddPackage = () => {
   const { id } = useParams()
-  const { existAddress } = usePackagesContext()
+  const { getAddress } = useAddressContext()
   const navigate = useNavigate()
 
-  const address = existAddress(id)
+  const address = getAddress(id)
 
   useEffect(() => {
     if (!address) {
