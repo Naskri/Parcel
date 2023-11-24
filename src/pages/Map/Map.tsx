@@ -6,6 +6,7 @@ import { LeafletMouseEvent } from 'leaflet'
 import { usePosition } from '../../hooks/usePosition'
 import { CustomLink } from '../../features/UI/CustomLink/CustomLink'
 import { useTranslation } from 'react-i18next'
+import { t } from 'i18next'
 
 export type GeoLocation = {
   latitude: number
@@ -15,6 +16,7 @@ export type GeoLocation = {
 const RecenterAutomatically = ({ data }: { data: GeoLocation }) => {
   const { latitude, longitude } = data
   const map = useMap()
+
   useEffect(() => {
     map.setView([latitude, longitude])
   }, [latitude, longitude])
@@ -26,12 +28,12 @@ const LocationMarker = ({ data }: { data: GeoLocation }) => {
 
   return (
     <Marker position={[latitude, longitude]}>
-      <Popup>You are here</Popup>
+      <Popup>{t('map.position')}</Popup>
     </Marker>
   )
 }
 
-const MapClickHandler = ({ onMapClick }: { onMapClick: (event: any) => void }) => {
+const MapClickHandler = ({ onMapClick }: { onMapClick: (event: LeafletMouseEvent) => void }) => {
   useMapEvents({
     click: (event) => {
       onMapClick(event)
@@ -69,7 +71,7 @@ export const Map = () => {
 
   return (
     <>
-      <Navigation title="Mapa" />
+      <Navigation title={t('map.title')} />
 
       <div className={styled.map}>
         <MapContainer
@@ -82,11 +84,6 @@ export const Map = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={[userPosition.latitude, userPosition.longitude]}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
           {userPosition && <RecenterAutomatically data={userPosition} />}
           {userPosition && <LocationMarker data={userPosition} />}
           <MapClickHandler onMapClick={handleMapClick} />

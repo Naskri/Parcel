@@ -5,6 +5,10 @@
   border-bottom: 1px solid var(--color-black);
 }
 
+.address--drag {
+  cursor: move;
+}
+
 .address__street {
   font-weight: 500;
 }

@@ -11,6 +11,10 @@
   margin-bottom: 2rem;
 }
 
+.add-package__back button {
+  padding: 1rem;
+}
+
 .add-package__form {
   display: flex;
   flex-direction: column;

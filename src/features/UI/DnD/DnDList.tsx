@@ -5,6 +5,6 @@ export const DnDList = () => {
   const { addresses } = useAddressContext()
 
   return addresses.map((address, index) => (
-    <AddressPoint index={index} key={address.custom_id} data={address} />
+    <AddressPoint index={index} key={address.custom_id} data={address} drag={true} />
   ))
 }

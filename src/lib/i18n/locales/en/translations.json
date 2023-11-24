@@ -19,7 +19,7 @@
     "passwordConfirmLabel": "Confirm password",
     "pinLabel": "PIN",
     "customerLabel": "Name and surname",
-    "nameLabel": "Point name",
+    "nameLabel": "Address name",
     "streetLabel": "Street",
     "zipCodeLabel": "Zip code",
     "cityLabel": "City",
@@ -48,7 +48,17 @@
     "pinInvalid": "PIN is invalid!",
     "pinNotMatch": "PIN not match!",
     "addressIDRequired": "Address ID is required.",
-    "addressIDInvalid": "Address ID is invalid, UUID format."
+    "addressIDInvalid": "Address ID is invalid, UUID format.",
+    "addressCustomerRequired": "Name and surname is required.",
+    "addressCustomerInvalid": "Name and surname must be provided with space between and each should have minimum 2 characters.",
+    "addressNameRequired": "Name is required.",
+    "addressStreetRequired": "Street is required.",
+    "addressCityRequired": "City is required.",
+    "addressHouseRequired": "House number is required.",
+    "addressZipCodeRequired": "Zip code is required.",
+    "addressZipCodeInvalid": "Zip code is invalid. Must be in ##-### format.",
+    "addressPhoneRequired": "Phone is required.",
+    "addressPhoneInvalid": "Phone is invalid."
   },
   "success": {
     "register": "Confirm account on email!",
@@ -95,5 +105,17 @@
   "search": {
     "title": "Search",
     "heading": "Search address by category"
+  },
+  "plan": {
+    "title": "Work plan",
+    "addresses": "Address points"
+  },
+  "adrressmenu": {
+    "delete": "Delete address",
+    "add": "Add package"
+  },
+  "map": {
+    "title": "Map",
+    "position": "Your actual position"
   }
 }

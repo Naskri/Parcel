@@ -49,7 +49,17 @@
     "pinInvalid": "PIN jest niepoprawny!",
     "pinNotMatch": "PIN się nie zgadza!",
     "addressIDRequired": "ID adresu jest wymagane.",
-    "addressIDInvalid": "ID adresu jest błędne, format UUID."
+    "addressIDInvalid": "ID adresu jest błędne, format UUID.",
+    "addressCustomerRequired": "Imię i nazwisko jest wymagane.",
+    "addressCustomerInvalid": "Imię i nazwisko musi być rozdzielone spacją, do tego każde musi mieć minimum 2 znaki.",
+    "addressNameRequired": "Nazwa jest wymagana.",
+    "addressStreetRequired": "Ulica jest wymagana.",
+    "addressCityRequired": "Miasto jest wymagane.",
+    "addressHouseRequired": "Numer domu jest wymagany.",
+    "addressZipCodeRequired": "Kod pocztowy jest wymagany.",
+    "addressZipCodeInvalid": "Kod pocztowy jest niepoprawny. Musi być formatu ##-###",
+    "addressPhoneRequired": "Numer telefonu jest wymagany.",
+    "addressPhoneInvalid": "Numer telefonu jest niepoprawny."
   },
   "success": {
     "register": "Potwierdź konto na email!",
@@ -96,5 +106,17 @@
   "search": {
     "title": "Wyszukiwarka",
     "heading": "Wyszukaj adres po kategorii"
+  },
+  "plan": {
+    "title": "Plan pracy",
+    "addresses": "Punkty adresowe"
+  },
+  "adrressmenu": {
+    "delete": "Usuń adres",
+    "add": "Dodaj paczkę"
+  },
+  "map": {
+    "title": "Mapa",
+    "position": "Twoja aktualna pozycja"
   }
 }

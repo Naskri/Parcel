@@ -14,9 +14,10 @@ import { useNavigate } from 'react-router'
 import { useState } from 'react'
 import { ButtonBack } from '../../../UI/Button/ButtonBack/ButtonBack'
 import { useAddressContext } from '../../AddressContext/AddressContext'
+import { GeoreverseSchemaType } from '../services/GeoreverseSchema'
 
 type AddPackagePointFormProps = {
-  data?: any
+  data?: GeoreverseSchemaType
 }
 
 export const AddPackagePointForm = ({ data }: AddPackagePointFormProps) => {
@@ -44,7 +45,9 @@ export const AddPackagePointForm = ({ data }: AddPackagePointFormProps) => {
 
   const submitHandler = (data: AddPackagePointSchemaType) => {
     setIsLoading(true)
+
     if (!user) return
+
     const customID = uuidv4()
     addAddress({ ...data, user_id: user.id, custom_id: customID })
     reset({ name: '', street: '', zipCode: '', city: '', house: '', customer: '', phone: '' })

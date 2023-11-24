@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Button } from '../../../UI/Button/Button'
 import { CustomLink } from '../../../UI/CustomLink/CustomLink'
 import { useAddressContext } from '../../AddressContext/AddressContext'
@@ -13,20 +14,22 @@ type AddressPointMenuProps = {
 
 export const AddressPointMenu = ({ id, isWork }: AddressPointMenuProps) => {
   const { removeAddress } = useAddressContext()
+  const { t } = useTranslation()
+
   return (
     <div className={styled.menu}>
       <ul className={styled.list}>
         {!isWork && (
           <li>
             <Button onClick={() => removeAddress(id)} modifier="menu">
-              <AiOutlineDelete /> <span>Delete address</span>
+              <AiOutlineDelete /> <span>{t('adrressmenu.delete')}</span>
             </Button>
           </li>
         )}
         {!isWork && (
           <li>
             <CustomLink path={`${id}`} modifier="menu">
-              <IoAddOutline /> <span>Dodaj paczki</span>
+              <IoAddOutline /> <span>{t('adrressmenu.add')}</span>
             </CustomLink>
           </li>
         )}

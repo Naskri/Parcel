@@ -12,6 +12,7 @@ type AddressPointProps = {
   index?: number
   isWork?: boolean
   selectedAddress?: string | null
+  drag?: boolean
   changeAddress?: (id: string) => void
 }
 
@@ -21,6 +22,7 @@ export const AddressPoint = ({
   selectedAddress,
   isWork,
   changeAddress,
+  drag,
 }: AddressPointProps) => {
   const { getAddressPackages } = usePackagesContext()
   const { isAddressHasCashPackage, reorderAddressPoints } = useAddressContext()
@@ -49,7 +51,10 @@ export const AddressPoint = ({
   })
 
   return (
-    <div ref={index ? (node) => ref(drop(node)) : null} className={styled.address}>
+    <div
+      ref={index ? (node) => ref(drop(node)) : null}
+      className={`${styled.address} ${drag && styled['address--drag']}`}
+    >
       <div className={styled.address__customer}>
         <p className={styled.address__street}>
           {data.street} {data.house}

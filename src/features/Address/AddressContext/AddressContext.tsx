@@ -3,11 +3,14 @@ import { useLocalStorage } from 'usehooks-ts'
 import { toast } from 'react-toastify'
 
 import { AddPackagePointSchemaType } from '../AddressPoint/AddAddressPoint/AddPackagePointSchema'
-import { AddressSupabaseData } from '../AddressPoint/services/useAddPoint'
 import { usePackagesContext } from '../../Packages/PackagesContext/PackagesContext'
 import { useTranslation } from 'react-i18next'
 import { useUser } from '../../Authentication/useUser'
 
+export type AddressSupabaseData = {
+  user_id: string
+  custom_id: string
+}
 export type Addresses = AddPackagePointSchemaType & AddressSupabaseData
 
 type AddressContextState = {
