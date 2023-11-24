@@ -117,5 +117,10 @@
   "map": {
     "title": "Map",
     "position": "Your actual position"
+  },
+  "sort": {
+    "without": "Without sort",
+    "gps": "Sort by GPS",
+    "name": "Sort by address name"
   }
 }

@@ -43,13 +43,19 @@ export const AddPackagePointForm = ({ data }: AddPackagePointFormProps) => {
     },
   })
 
-  const submitHandler = (data: AddPackagePointSchemaType) => {
+  const submitHandler = (formData: AddPackagePointSchemaType) => {
     setIsLoading(true)
-
     if (!user) return
-
     const customID = uuidv4()
-    addAddress({ ...data, user_id: user.id, custom_id: customID })
+    addAddress({
+      ...formData,
+      user_id: user.id,
+      custom_id: customID,
+      position: {
+        latitude: data?.lat,
+        longitude: data?.lon,
+      },
+    })
     reset({ name: '', street: '', zipCode: '', city: '', house: '', customer: '', phone: '' })
     setIsLoading(false)
     navigate(`/dashboard/warehouse/packages/${customID}`)

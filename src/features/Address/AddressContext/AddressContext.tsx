@@ -6,12 +6,22 @@ import { AddPackagePointSchemaType } from '../AddressPoint/AddAddressPoint/AddPa
 import { usePackagesContext } from '../../Packages/PackagesContext/PackagesContext'
 import { useTranslation } from 'react-i18next'
 import { useUser } from '../../Authentication/useUser'
+import { SortPossibility } from '../../Packages/PackagesPlanning/PackagesPlanningSort/PackagesPlanningSortData'
+import { calculateDistance } from './helpers'
 
 export type AddressSupabaseData = {
   user_id: string
   custom_id: string
 }
-export type Addresses = AddPackagePointSchemaType & AddressSupabaseData
+
+export type AddressPosition = {
+  position: {
+    latitude: number | undefined
+    longitude: number | undefined
+  }
+}
+
+export type Addresses = AddPackagePointSchemaType & AddressSupabaseData & AddressPosition
 
 type AddressContextState = {
   addresses: Addresses[]
@@ -20,9 +30,13 @@ type AddressContextState = {
   reorderAddressPoints: (dragIndex: number, hoverIndex: number) => void
   removeAddress: (addressID: string) => void
   isAddressHasCashPackage: (addressID: string) => boolean
-  filterAddresses: (search: string, searchCategory: keyof Addresses) => Addresses[]
+  filterAddresses: (
+    search: string,
+    searchCategory: keyof Omit<Addresses, 'position'>
+  ) => Addresses[]
   hangOverAddress: (userId: string, addressId: string) => void
   reverseAddresses: () => void
+  sortAddresses: (sortCategory: SortPossibility) => Addresses[]
 }
 
 export const AddressContext = createContext<AddressContextState | null>(null)
@@ -73,7 +87,7 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
     return isCashPackage
   }
 
-  const filterAddresses = (search: string, searchCategory: keyof Addresses) => {
+  const filterAddresses = (search: string, searchCategory: keyof Omit<Addresses, 'position'>) => {
     const filtered = addresses.filter((address) =>
       address[searchCategory].toLowerCase().includes(search.toLowerCase())
     )
@@ -102,6 +116,49 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
     setAddresses(reversedAddresses)
   }
 
+  const sortAddresses = (sortCategory: SortPossibility) => {
+    const referencePoint = {
+      latitude: 51.935619,
+      longitude: 15.506186,
+    }
+
+    if (sortCategory === 'no') {
+      return addresses
+    }
+
+    if (sortCategory === 'name') {
+      const sortedAddresses = addresses.sort((address, nextAddress) =>
+        address.name.toUpperCase() > nextAddress.name.toUpperCase() ? 1 : -1
+      )
+
+      setAddresses(sortedAddresses)
+    }
+
+    if (sortCategory === 'gps') {
+      const sortedAddresses = addresses.sort((address, nextAddress) => {
+        const addressDistance = calculateDistance(
+          referencePoint.latitude,
+          referencePoint.longitude,
+          address.position.latitude,
+          address.position.longitude
+        )
+
+        const nextAddressDistance = calculateDistance(
+          referencePoint.latitude,
+          referencePoint.longitude,
+          nextAddress.position.latitude,
+          nextAddress.position.longitude
+        )
+
+        return addressDistance - nextAddressDistance
+      })
+
+      setAddresses(sortedAddresses)
+    }
+
+    return addresses
+  }
+
   return (
     <AddressContext.Provider
       value={{
@@ -114,6 +171,7 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
         removeAddress,
         hangOverAddress,
         reverseAddresses,
+        sortAddresses,
       }}
     >
       {children}

@@ -3,6 +3,7 @@ import { DnDList } from '../../UI/DnD/DnDList'
 import { ButtonBack } from '../../UI/Button/ButtonBack/ButtonBack'
 import { useAddressContext } from '../../Address/AddressContext/AddressContext'
 import { useTranslation } from 'react-i18next'
+import { PackagesPlanningSort } from './PackagesPlanningSort/PackagesPlanningSort'
 
 export const PackagesPlanning = () => {
   const { addresses } = useAddressContext()
@@ -17,6 +18,7 @@ export const PackagesPlanning = () => {
         <ButtonBack />
       </header>
       <div className={styled.planning__list}>
+        <PackagesPlanningSort />
         <DnDList />
       </div>
     </div>

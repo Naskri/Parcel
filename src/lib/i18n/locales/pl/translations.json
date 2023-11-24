@@ -118,5 +118,10 @@
   "map": {
     "title": "Mapa",
     "position": "Twoja aktualna pozycja"
+  },
+  "sort": {
+    "without": "Bez sortowania",
+    "gps": "Sortuj za pomocą GPS",
+    "name": "Sortuj po nazwie adresu"
   }
 }
