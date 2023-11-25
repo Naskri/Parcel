@@ -6,6 +6,7 @@ import { AddPackageSchema, AddPackageSchemaType } from './AddPackageSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { usePackagesContext } from '../../PackagesContext/PackagesContext'
+import { t } from 'i18next'
 
 type AddPackageFormProps = {
   id: string
@@ -47,7 +48,7 @@ export const AddPackageForm = ({ id }: AddPackageFormProps) => {
           required
           error={errors?.height?.message}
           {...register('height')}
-        />{' '}
+        />
         <InputContainer
           id="length"
           label="form.lengthLabel"
@@ -74,7 +75,7 @@ export const AddPackageForm = ({ id }: AddPackageFormProps) => {
         {...register('cash')}
       />
 
-      <Button modifier="primary">Dodaj paczkę do adresu</Button>
+      <Button modifier="primary">{t('package.add')}</Button>
     </form>
   )
 }

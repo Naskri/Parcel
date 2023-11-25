@@ -57,7 +57,7 @@ export const AddressPoint = ({
     >
       <div className={styled.address__customer}>
         <p className={styled.address__street}>
-          {data.street} {data.house}
+          {data.street || data.city} {data.house}
         </p>
         {changeAddress && (
           <Button

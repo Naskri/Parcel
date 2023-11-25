@@ -36,14 +36,14 @@ export const AddressPointMenu = ({ id, isWork }: AddressPointMenuProps) => {
         {isWork && (
           <li>
             <CustomLink path={`../address/${id}`} modifier="menu">
-              <MdGridView /> <span>Podsumowanie</span>
+              <MdGridView /> <span>{t('adrressmenu.summary')}</span>
             </CustomLink>
           </li>
         )}
         {isWork && (
           <li>
             <CustomLink path={`../send?address=${id}`} modifier="menu">
-              <MdGridView /> <span>Przekaż adres</span>
+              <MdGridView /> <span>{t('adrressmenu.handover')}</span>
             </CustomLink>
           </li>
         )}

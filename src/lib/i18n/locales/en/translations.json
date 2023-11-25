@@ -58,7 +58,16 @@
     "addressZipCodeRequired": "Zip code is required.",
     "addressZipCodeInvalid": "Zip code is invalid. Must be in ##-### format.",
     "addressPhoneRequired": "Phone is required.",
-    "addressPhoneInvalid": "Phone is invalid."
+    "addressPhoneInvalid": "Phone is invalid.",
+    "packageWidthRequired": "Width is required.",
+    "packageNumberInvalid": "Must be a number.",
+    "maxPackageWidth": "Maximum {{width}} cm",
+    "packageHeightRequired": "Height is required.",
+    "maxPackageHeight": "Maximum {{height}} cm",
+    "packageLengthRequired": "Length is required.",
+    "maxPackageLength": "Maximum {{length}} cm",
+    "packageWeightRequired": "Weight is required.",
+    "maxPackageWeigth": "Maximum {{weight}} kg"
   },
   "success": {
     "register": "Confirm account on email!",
@@ -112,7 +121,9 @@
   },
   "adrressmenu": {
     "delete": "Delete address",
-    "add": "Add package"
+    "add": "Add package",
+    "summary": "Summary",
+    "handover": "Hand over the address"
   },
   "map": {
     "title": "Map",
@@ -122,5 +133,12 @@
     "without": "Without sort",
     "gps": "Sort by GPS",
     "name": "Sort by address name"
+  },
+  "route": {
+    "information-title": "Address informations",
+    "packages": "Packages"
+  },
+  "package": {
+    "add": "Add package to address"
   }
 }

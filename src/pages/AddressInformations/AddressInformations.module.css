@@ -5,4 +5,9 @@
 
 .action {
   margin: 1rem 0;
+  display: flex;
+}
+
+.action button {
+  padding: 0.5rem;
 }

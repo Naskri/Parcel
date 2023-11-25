@@ -59,7 +59,16 @@
     "addressZipCodeRequired": "Kod pocztowy jest wymagany.",
     "addressZipCodeInvalid": "Kod pocztowy jest niepoprawny. Musi być formatu ##-###",
     "addressPhoneRequired": "Numer telefonu jest wymagany.",
-    "addressPhoneInvalid": "Numer telefonu jest niepoprawny."
+    "addressPhoneInvalid": "Numer telefonu jest niepoprawny.",
+    "packageWidthRequired": "Szerokość jest wymagana.",
+    "packageNumberInvalid": "Musi być liczbą.",
+    "maxPackageWidth": "Maksymalnie {{width}} cm",
+    "packageHeightRequired": "Wysokość jest wymagana.",
+    "maxPackageHeight": "Maksymalnie {{height}} cm",
+    "packageLengthRequired": "Długość jest wymagana.",
+    "maxPackageLength": "Maksymalnie {{length}} cm",
+    "packageWeightRequired": "Waga jest wymagana.",
+    "maxPackageWeigth": "Maskymalnie {{weight}} kg"
   },
   "success": {
     "register": "Potwierdź konto na email!",
@@ -113,7 +122,9 @@
   },
   "adrressmenu": {
     "delete": "Usuń adres",
-    "add": "Dodaj paczkę"
+    "add": "Dodaj paczkę",
+    "summary": "Podsumowanie",
+    "handover": "Przekaż adres"
   },
   "map": {
     "title": "Mapa",
@@ -123,5 +134,12 @@
     "without": "Bez sortowania",
     "gps": "Sortuj za pomocą GPS",
     "name": "Sortuj po nazwie adresu"
+  },
+  "route": {
+    "information-title": "Informacje o adresie",
+    "packages": "Paczki"
+  },
+  "package": {
+    "add": "Dodaj paczkę do adresu"
   }
 }

@@ -1,54 +1,55 @@
+import { t } from 'i18next'
 import z from 'zod'
 
-const MAX_PACKAGE_WIDTH = 150
-const MAX_PACKAGE_LENGTH = 75
-const MAX_PACKAGE_HEIGHT = 75
-const MAX_PACKAGE_WEIGHT = 31.5
+export const MAX_PACKAGE_WIDTH = 150 // cm
+export const MAX_PACKAGE_LENGTH = 75 // cm
+export const MAX_PACKAGE_HEIGHT = 75 // cm
+export const MAX_PACKAGE_WEIGHT = 31.5 // kg
 
 export const AddPackageSchema = z.object({
   width: z
-    .string({ required_error: 'Wymagane' })
-    .min(1, 'Pole jest wymagane!')
+    .string({ required_error: 'validation.packageWidthRequired' })
+    .min(1, 'validation.packageWidthRequired')
     .refine((value) => !Number.isNaN(Number(value)), {
-      message: 'Musi być liczbą',
+      message: 'validation.packageNumberInvalid',
     })
     .refine((value) => Number(value) <= MAX_PACKAGE_WIDTH, {
-      message: `Maksimum ${MAX_PACKAGE_WIDTH} cm`,
+      message: `${t('validation.maxPackageWidth', { width: MAX_PACKAGE_WIDTH })}`,
     }),
   height: z
-    .string({ required_error: 'Wymagane' })
-    .min(1, 'Pole jest wymagane!')
+    .string({ required_error: 'validation.packageHeightRequired' })
+    .min(1, 'validation.packageHeightRequired')
     .refine((value) => !Number.isNaN(Number(value)), {
-      message: 'Musi być liczbą',
+      message: 'validation.packageNumberInvalid',
     })
     .refine((value) => Number(value) <= MAX_PACKAGE_HEIGHT, {
-      message: `Maksimum ${MAX_PACKAGE_HEIGHT} cm`,
+      message: `${t('validation.maxPackageHeight', { height: MAX_PACKAGE_HEIGHT })}`,
     }),
   length: z
-    .string({ required_error: 'Wymagane' })
-    .min(1, 'Pole jest wymagane!')
+    .string({ required_error: 'validation.packageLengthRequired' })
+    .min(1, 'validation.packageLengthRequired')
     .refine((value) => !Number.isNaN(Number(value)), {
-      message: 'Musi być liczbą',
+      message: 'validation.packageNumberInvalid',
     })
     .refine((value) => Number(value) <= MAX_PACKAGE_LENGTH, {
-      message: `Maksimum ${MAX_PACKAGE_LENGTH} cm`,
+      message: `${t('validation.maxPackageLength', { length: MAX_PACKAGE_LENGTH })}`,
     }),
   weight: z
-    .string({ required_error: 'Wymagane' })
-    .min(1, 'Pole jest wymagane!')
+    .string({ required_error: 'validation.packageWeightRequired' })
+    .min(1, 'validation.packageWeightRequired')
     .refine((value) => !Number.isNaN(Number(value)), {
-      message: 'Musi być liczbą',
+      message: 'validation.packageNumberInvalid',
     })
     .refine((value) => Number(value) <= MAX_PACKAGE_WEIGHT, {
-      message: `Maksimum ${MAX_PACKAGE_WEIGHT} kg`,
+      message: `${t('validation.maxPackageWeigth', { weight: MAX_PACKAGE_WEIGHT })}`,
     }),
   cash: z
     .string()
     .nullable()
-    .refine((value) => !isNaN(Number(value)), {
-      message: 'Musi być liczbą jak coś',
-      path: ['cash'],
+    .refine((value) => !isNaN(Number(value)) || value === '0', {
+      message: 'validation.packageNumberInvalid',
     })
+
     .transform((value) => (isNaN(Number(value)) || value === '0' ? null : value)),
   errorStatus: z.string().optional().nullable(),
 })
