@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom'
 import { useGeoreverse } from '../services/useGeoreverse'
 
 import { AddPackagePointForm } from './AddPackagePointForm'
+import { Spinner } from '../../../UI/Spinner/Spinner'
 
 export const AddPackagePoint = () => {
   const [searchParams] = useSearchParams()
@@ -16,6 +17,8 @@ export const AddPackagePoint = () => {
   })
 
   return (
-    <div className={styled['add-package']}>{!isLoading && <AddPackagePointForm data={data} />}</div>
+    <div className={styled['add-package']}>
+      {!isLoading ? <AddPackagePointForm data={data} /> : <Spinner />}
+    </div>
   )
 }

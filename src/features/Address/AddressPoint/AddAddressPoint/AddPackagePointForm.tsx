@@ -36,7 +36,7 @@ export const AddPackagePointForm = ({ data }: AddPackagePointFormProps) => {
     resolver: zodResolver(AddPackagePointSchema),
     defaultValues: {
       name: data?.address_line1,
-      street: data?.street,
+      street: data?.street || data?.city,
       zipCode: data?.postcode,
       city: data?.city,
       house: data?.housenumber,
@@ -47,6 +47,7 @@ export const AddPackagePointForm = ({ data }: AddPackagePointFormProps) => {
     setIsLoading(true)
     if (!user) return
     const customID = uuidv4()
+
     addAddress({
       ...formData,
       user_id: user.id,
