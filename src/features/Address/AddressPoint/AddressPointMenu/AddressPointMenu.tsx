@@ -6,6 +6,7 @@ import styled from './AddressPointMenu.module.css'
 import { AiOutlineDelete } from 'react-icons/ai'
 import { IoAddOutline } from 'react-icons/io5'
 import { MdGridView } from 'react-icons/md'
+import { usePackagesContext } from '../../../Packages/PackagesContext/PackagesContext'
 
 type AddressPointMenuProps = {
   id: string
@@ -14,14 +15,20 @@ type AddressPointMenuProps = {
 
 export const AddressPointMenu = ({ id, isWork }: AddressPointMenuProps) => {
   const { removeAddress } = useAddressContext()
+  const { removeAddressPackages } = usePackagesContext()
   const { t } = useTranslation()
+
+  const removeHandler = () => {
+    removeAddressPackages(id)
+    removeAddress(id)
+  }
 
   return (
     <div className={styled.menu}>
       <ul className={styled.list}>
         {!isWork && (
           <li>
-            <Button onClick={() => removeAddress(id)} modifier="menu">
+            <Button onClick={removeHandler} modifier="menu">
               <AiOutlineDelete /> <span>{t('adrressmenu.delete')}</span>
             </Button>
           </li>

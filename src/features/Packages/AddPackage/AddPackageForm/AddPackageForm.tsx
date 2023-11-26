@@ -7,6 +7,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import { usePackagesContext } from '../../PackagesContext/PackagesContext'
 import { t } from 'i18next'
+import { useUser } from '../../../Authentication/useUser'
+import { useAddressContext } from '../../../Address/AddressContext/AddressContext'
 
 type AddPackageFormProps = {
   id: string
@@ -14,6 +16,8 @@ type AddPackageFormProps = {
 
 export const AddPackageForm = ({ id }: AddPackageFormProps) => {
   const { addPackage } = usePackagesContext()
+  const { updateAddressPackages } = useAddressContext()
+  const { user } = useUser()
 
   const {
     register,
@@ -26,7 +30,17 @@ export const AddPackageForm = ({ id }: AddPackageFormProps) => {
   })
 
   const submitHandler = (data: AddPackageSchemaType) => {
-    addPackage({ ...data, address_id: id, package_id: Math.random().toString(), errorStatus: null })
+    if (!user) return
+
+    addPackage({
+      ...data,
+      user_id: user.id,
+      address_id: id,
+      package_id: Math.random().toString(),
+      errorStatus: null,
+    })
+
+    updateAddressPackages(id)
     reset()
   }
 

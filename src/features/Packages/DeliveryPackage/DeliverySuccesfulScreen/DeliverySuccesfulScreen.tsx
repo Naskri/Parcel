@@ -1,3 +1,5 @@
+import styled from './DeliverySuccesfulScreen.module.css'
+
 export const DeliverySuccesfulScreen = () => {
-  return <div>Succesful</div>
+  return <div className={styled.default}>asd</div>
 }

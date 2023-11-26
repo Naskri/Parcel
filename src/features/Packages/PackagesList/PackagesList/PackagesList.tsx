@@ -6,7 +6,7 @@ import { AddressPoint } from '../../../Address/AddressPoint/AddressPoint'
 type PackagesListProps = {
   isWork?: boolean
   search?: string
-  searchCategory?: keyof Addresses
+  searchCategory?: keyof Omit<Addresses, 'position'>
 }
 
 export const PackagesList = ({ isWork, search, searchCategory }: PackagesListProps) => {

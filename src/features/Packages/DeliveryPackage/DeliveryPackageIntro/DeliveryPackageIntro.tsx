@@ -4,15 +4,19 @@ import { PackageItem } from '../../PackageItem/PackageItem'
 import { Button } from '../../../UI/Button/Button'
 import styled from './DeliveryPackageIntro.module.css'
 import { CustomLink } from '../../../UI/CustomLink/CustomLink'
+import { useAddressContext } from '../../../Address/AddressContext/AddressContext'
+import { useTranslation } from 'react-i18next'
 
 export const DeliveryPackageIntro = () => {
   const { id, packId } = useParams()
-  const { existAddress, getPackageByID } = usePackagesContext()
+  const { getAddress } = useAddressContext()
+  const { getPackageByID } = usePackagesContext()
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
   if (!id || !packId) return
 
-  const address = existAddress(id)
+  const address = getAddress(id)
   const pack = getPackageByID(packId)
 
   return (
@@ -20,10 +24,10 @@ export const DeliveryPackageIntro = () => {
       {address && <PackageItem address={address} pack={pack} delivery={true} />}
       <div className={styled.action}>
         <Button modifier="cancel" onClick={() => navigate(-1)}>
-          Anuluj
+          {t('delivery.cancel')}
         </Button>
         <CustomLink path="choice" modifier="primary">
-          Zatwierdź
+          {t('delivery.confirm')}
         </CustomLink>
       </div>
     </div>

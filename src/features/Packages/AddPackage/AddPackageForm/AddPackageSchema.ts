@@ -1,5 +1,6 @@
 import { t } from 'i18next'
 import z from 'zod'
+import { ErrorPackageStatus } from '../../DeliveryPackage/DeliveryNotSuccesfulScreen/DeliveryNotSuccesfulList/DeliveryNotSuccesfulListData'
 
 export const MAX_PACKAGE_WIDTH = 150 // cm
 export const MAX_PACKAGE_LENGTH = 75 // cm
@@ -51,7 +52,8 @@ export const AddPackageSchema = z.object({
     })
 
     .transform((value) => (isNaN(Number(value)) || value === '0' ? null : value)),
-  errorStatus: z.string().optional().nullable(),
+  errorStatus: z.nativeEnum(ErrorPackageStatus).optional().nullable(),
+  success: z.boolean().default(false),
 })
 
 export type AddPackageSchemaType = z.infer<typeof AddPackageSchema>

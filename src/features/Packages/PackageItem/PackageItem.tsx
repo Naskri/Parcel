@@ -10,9 +10,10 @@ type PackageItemProps = {
   address: Addresses
   pack?: Packages
   delivery?: boolean
+  statistic?: boolean
 }
 
-export const PackageItem = ({ address, pack, delivery }: PackageItemProps) => {
+export const PackageItem = ({ address, pack, delivery, statistic }: PackageItemProps) => {
   const [isShowingMore, setIsShowingMore] = useState(false)
   const { t } = useTranslation()
 
@@ -36,7 +37,9 @@ export const PackageItem = ({ address, pack, delivery }: PackageItemProps) => {
           {isShowingMore ? t('package.more-on') : t('package.more-off')}
         </Button>
       )}
-      {pack && isShowingMore && <PackageItemSummary address={address} pack={pack} />}
+      {pack && isShowingMore && (
+        <PackageItemSummary address={address} pack={pack} statistic={statistic} />
+      )}
     </div>
   )
 }

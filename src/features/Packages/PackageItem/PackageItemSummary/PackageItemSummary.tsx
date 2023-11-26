@@ -3,18 +3,35 @@ import { Addresses } from '../../../Address/AddressContext/AddressContext'
 import { CustomLink } from '../../../UI/CustomLink/CustomLink'
 import { Packages } from '../../PackagesContext/PackagesContext'
 import styled from './PackageItemSummary.module.css'
+import { ErrorCodes } from '../../DeliveryPackage/DeliveryNotSuccesfulScreen/DeliveryNotSuccesfulList/DeliveryNotSuccesfulListData'
 
 type PackageItemSummaryProps = {
   address: Addresses
   pack: Packages
+  statistic?: boolean
 }
 
-export const PackageItemSummary = ({ address, pack }: PackageItemSummaryProps) => {
+export const PackageItemSummary = ({ address, pack, statistic }: PackageItemSummaryProps) => {
   const { t } = useTranslation()
+
+  const isToDelivery = !statistic || !pack.success
 
   return (
     <div className={styled.summary}>
       <h2>{t('package.data')}</h2>
+
+      {pack.success && (
+        <p className={styled.name}>
+          <span className={styled.success}>{t('package.success')}</span>
+        </p>
+      )}
+
+      {pack.errorStatus && (
+        <p className={styled.name}>
+          <span className={styled.error}>{t(ErrorCodes[pack.errorStatus])}</span>
+        </p>
+      )}
+
       <p className={styled.name}>
         {t('package.name')}
         <strong>{address.customer}</strong>
@@ -63,11 +80,16 @@ export const PackageItemSummary = ({ address, pack }: PackageItemSummaryProps) =
           <strong>{pack.cash}zł</strong>
         </p>
       )}
-      <div className={styled.action}>
-        <CustomLink path={`delivery?pack=${pack.package_id}`} modifier="primary">
-          {t('package.delivery')}
-        </CustomLink>
-      </div>
+      {isToDelivery && (
+        <div className={styled.action}>
+          <CustomLink
+            path={`/dashboard/address/${address.custom_id}/delivery?pack=${pack.package_id}`}
+            modifier="primary"
+          >
+            {t('package.delivery')}
+          </CustomLink>
+        </div>
+      )}
     </div>
   )
 }

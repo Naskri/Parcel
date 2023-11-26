@@ -29,6 +29,8 @@ import { DeliveryNotSuccesful } from './pages/Delivery/DeliveryNotSuccesful/Deli
 import { DeliverySuccesful } from './pages/Delivery/DeliverySuccesful/DeliverySuccesful'
 import { HandOverAddress } from './pages/HandOverAddress/HandOverAddress'
 import { AddressContextProvider } from './features/Address/AddressContext/AddressContext'
+import { Statistics } from './pages/Statistics/Statistics'
+import { StatisticsDelivery } from './pages/Statistics/StatisticsDelivery/StatisticsDelivery'
 
 export const App = () => {
   return (
@@ -75,6 +77,8 @@ export const App = () => {
             <Route path="work" element={<Work />} />
             <Route path="search" element={<Search />} />
             <Route path="send" element={<HandOverAddress />} />
+            <Route path="stats" element={<Statistics />} />
+            <Route path="stats/delivery" element={<StatisticsDelivery />} />
           </Route>
         </Route>
       </Routes>

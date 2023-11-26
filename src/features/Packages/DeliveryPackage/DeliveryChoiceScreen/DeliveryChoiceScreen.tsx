@@ -1,14 +1,16 @@
+import { useTranslation } from 'react-i18next'
 import { CustomLink } from '../../../UI/CustomLink/CustomLink'
 import styled from './DeliveryChoiceScreen.module.css'
 
 export const DeliveryChoiceScreen = () => {
+  const { t } = useTranslation()
   return (
     <div className={styled.container}>
       <CustomLink path="correct" modifier="primary">
-        Doręczenie skuteczne
+        {t('delivery.correctDelivery')}
       </CustomLink>
       <CustomLink path="wrong" modifier="cancel">
-        Doręczenie nieskuteczne
+        {t('delivery.errorDelivery')}
       </CustomLink>
     </div>
   )

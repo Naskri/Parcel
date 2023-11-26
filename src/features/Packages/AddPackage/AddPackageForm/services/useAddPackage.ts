@@ -6,6 +6,7 @@ import { addPackage } from './api'
 export type PackageSupabaseData = {
   package_id: string | null
   address_id: string | null
+  user_id: string | null
 }
 
 export const useAddPackage = () => {

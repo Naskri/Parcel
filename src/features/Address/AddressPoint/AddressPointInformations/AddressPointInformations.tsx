@@ -35,11 +35,14 @@ export const AddressPointInformations = () => {
         <>
           <h2 className={styled.title}>{t('route.packages')}</h2>
           <ul className={styled.list}>
-            {packages.map((pack) => (
-              <li key={pack.package_id}>
-                <PackageItem address={address} pack={pack} />
-              </li>
-            ))}
+            {packages.map((pack) => {
+              if (pack.errorStatus) return null
+              return (
+                <li key={pack.package_id}>
+                  <PackageItem address={address} pack={pack} />
+                </li>
+              )
+            })}
           </ul>
         </>
       ) : null}

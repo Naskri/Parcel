@@ -26,7 +26,7 @@ export type Addresses = AddPackagePointSchemaType & AddressSupabaseData & Addres
 type AddressContextState = {
   addresses: Addresses[]
   addAddress: (address: Addresses) => void
-  getAddress: (id: string | undefined) => Addresses | undefined
+  getAddress: (id: string | undefined | null) => Addresses | undefined
   reorderAddressPoints: (dragIndex: number, hoverIndex: number) => void
   removeAddress: (addressID: string) => void
   isAddressHasCashPackage: (addressID: string) => boolean
@@ -37,15 +37,16 @@ type AddressContextState = {
   hangOverAddress: (userId: string, addressId: string) => void
   reverseAddresses: () => void
   sortAddresses: (sortCategory: SortPossibility) => Addresses[]
+  updateAddressPackages: (addressID: string) => void
 }
 
 export const AddressContext = createContext<AddressContextState | null>(null)
 
 export const AddressContextProvider = ({ children }: { children: ReactNode }) => {
   const [storageAddresses, setAddresses] = useLocalStorage<Addresses[]>('addresses', [])
+  const { t } = useTranslation()
   const { user } = useUser()
   const addresses = storageAddresses.filter((address) => address.user_id === user?.id)
-  const { t } = useTranslation()
 
   const { getAddressPackages } = usePackagesContext()
 
@@ -57,7 +58,7 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
     setAddresses((prev) => [...prev, address])
   }
 
-  const getAddress = (id: string | undefined) => {
+  const getAddress = (id: string | undefined | null) => {
     if (!id) return
 
     const existAddress = addresses.find((findAddress) => findAddress.custom_id === id)
@@ -159,6 +160,20 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
     return addresses
   }
 
+  const updateAddressPackages = (addressID: string) => {
+    const findedAddress = getAddress(addressID)
+
+    if (!findedAddress) return
+
+    const mappedAddresses = addresses.map((address) =>
+      address.custom_id === findedAddress.custom_id
+        ? { ...address, packages: String(Number(address.packages) + 1) }
+        : address
+    )
+
+    setAddresses(mappedAddresses)
+  }
+
   return (
     <AddressContext.Provider
       value={{
@@ -172,6 +187,7 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
         hangOverAddress,
         reverseAddresses,
         sortAddresses,
+        updateAddressPackages,
       }}
     >
       {children}

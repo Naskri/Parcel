@@ -6,6 +6,7 @@ import { CiBarcode } from 'react-icons/ci'
 import { DeliveryPackageFormSchema, DeliveryPackageFormSchemaType } from './DeliveryPackageSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useNavigate } from 'react-router'
+import { useTranslation } from 'react-i18next'
 
 type DeliveryPackageFormProps = {
   id: string | null
@@ -13,6 +14,7 @@ type DeliveryPackageFormProps = {
 
 export const DeliveryPackageForm = ({ id }: DeliveryPackageFormProps) => {
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   const {
     register,
@@ -32,7 +34,7 @@ export const DeliveryPackageForm = ({ id }: DeliveryPackageFormProps) => {
   return (
     <div className={styled.container}>
       <CiBarcode className={styled.icon} />
-      <h1>Wpisz numer paczki</h1>
+      <h1>{t('delivery.packNumber')}</h1>
       <form className={styled.form} onSubmit={handleSubmit(submitHandler)}>
         <InputContainer
           id="email"
@@ -42,7 +44,7 @@ export const DeliveryPackageForm = ({ id }: DeliveryPackageFormProps) => {
           error={errors?.pack?.message}
           {...register('pack')}
         />
-        <Button modifier="primary">Dodaj paczkę</Button>
+        <Button modifier="primary">{t('delivery.addPackage')}</Button>
       </form>
     </div>
   )

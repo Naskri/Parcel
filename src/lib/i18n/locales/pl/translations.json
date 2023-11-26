@@ -68,7 +68,11 @@
     "packageLengthRequired": "Długość jest wymagana.",
     "maxPackageLength": "Maksymalnie {{length}} cm",
     "packageWeightRequired": "Waga jest wymagana.",
-    "maxPackageWeigth": "Maskymalnie {{weight}} kg"
+    "maxPackageWeigth": "Maskymalnie {{weight}} kg",
+    "packNumberRequired": "Numer paczki jest wymagany.",
+    "packNumberMinLengthInvalid": "Numer paczki musi mieć minimum 18 znaków.",
+    "packNumberMaxLengthInvalid": "Numer paczki musi mieć maksymalnie 26 znaków.",
+    "packStartsWithInvalid": "Numer paczki musi się zaczynać od prefiksu 0."
   },
   "success": {
     "register": "Potwierdź konto na email!",
@@ -155,6 +159,30 @@
     "length": "Długość",
     "width": "Szerokość",
     "cash": "Pobranie",
-    "delivery": "Doręczaj"
+    "delivery": "Doręczaj",
+    "success": "Dostarczona"
+  },
+  "delivery": {
+    "title": "Doręczaj",
+    "packNumber": "Wpisz numer paczki",
+    "addPackage": "Dodaj paczkę",
+    "introTitle": "Próba doręczenia",
+    "cancel": "Anuluj",
+    "confirm": "Zatwierdź",
+    "choiceTitle": "Doręczenie",
+    "correctDelivery": "Doręczenie skuteczne",
+    "errorDelivery": "Doręczenie nieskuteczne",
+    "errorDeliveryReason": "Wybierz powód",
+    "errorAbsent": "Odbiorca nieobecny",
+    "errorWrongAddress": "Błędny adres",
+    "errorRefusal": "Odmowa przyjęcia przez klienta",
+    "errorNoCOD": "Odbiorca nie posiada kwoty COD"
+  },
+  "statistics": {
+    "title": "Statystyki",
+    "chart-title": "Doręczenia",
+    "additional-rest": "Pozostało",
+    "additional-all": "Wszystko",
+    "individual-title": "Statystyki indywidualne"
   }
 }

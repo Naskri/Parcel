@@ -1,0 +1,8 @@
+.statistics {
+  flex-grow: 1;
+}
+
+.statistics__delivery {
+  flex-grow: 1;
+  padding: 1rem;
+}

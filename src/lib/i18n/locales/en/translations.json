@@ -67,7 +67,11 @@
     "packageLengthRequired": "Length is required.",
     "maxPackageLength": "Maximum {{length}} cm",
     "packageWeightRequired": "Weight is required.",
-    "maxPackageWeigth": "Maximum {{weight}} kg"
+    "maxPackageWeigth": "Maximum {{weight}} kg",
+    "packNumberRequired": "Pack number is required.",
+    "packNumberMinLengthInvalid": "Pack number must have minimum 18 characters.",
+    "packNumberMaxLengthInvalid": "Pack number must have maximum 26 characters.",
+    "packStartsWithInvalid": "Pack number must start with 0. prefix"
   },
   "success": {
     "register": "Confirm account on email!",
@@ -154,6 +158,30 @@
     "length": "Length:",
     "width": "Width:",
     "cash": "Cash",
-    "delivery": "Delivery"
+    "delivery": "Delivery",
+    "success": "Already delivered"
+  },
+  "delivery": {
+    "title": "Delivery",
+    "packNumber": "Enter package number",
+    "addPackage": "Add package",
+    "introTitle": "Delivery attempted",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "choiceTitle": "Delivery",
+    "correctDelivery": "Delivery effective",
+    "errorDelivery": "Delivery ineffective",
+    "errorDeliveryReason": "Choose a reason",
+    "errorAbsent": "Recipient absent",
+    "errorWrongAddress": "Wrong address",
+    "errorRefusal": "Customer's refusal to accept",
+    "errorNoCOD": "The recipient does not have the COD amount"
+  },
+  "statistics": {
+    "title": "Statistics",
+    "chart-title": "Delivery",
+    "additional-rest": "Rest",
+    "additional-all": "All",
+    "individual-title": "Individual statistics"
   }
 }

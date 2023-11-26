@@ -1,29 +1,36 @@
-export const ErrorCodes = {
-  'E-01': 'Recipient absent',
-  'E-02': 'Wrong address',
-  'E-03': `Customer's refusal to accept`,
-  'E-04': 'The recipient does not have the COD amount',
+export enum ErrorPackageStatus {
+  'ABSENT' = 'E-01',
+  'WRONG_ADDRESS' = 'E-02',
+  'REFUSAL' = 'E-03',
+  'NO_COD' = 'E-04',
 }
+
+export const ErrorCodes = {
+  [ErrorPackageStatus.ABSENT]: 'delivery.errorAbsent',
+  [ErrorPackageStatus.WRONG_ADDRESS]: 'delivery.errorWrongAddress',
+  [ErrorPackageStatus.REFUSAL]: `delivery.errorRefusal`,
+  [ErrorPackageStatus.NO_COD]: 'delivery.errorNoCOD',
+} as const
 
 export const DeliveryNotSuccesfulListData = [
   {
     id: 1,
-    title: 'Odbiorca nieobecny',
-    code: ErrorCodes['E-01'],
+    title: ErrorCodes[ErrorPackageStatus.ABSENT],
+    code: ErrorPackageStatus.ABSENT,
   },
   {
     id: 2,
-    title: 'Błędny adres',
-    code: ErrorCodes['E-02'],
+    title: ErrorCodes[ErrorPackageStatus.WRONG_ADDRESS],
+    code: ErrorPackageStatus.WRONG_ADDRESS,
   },
   {
     id: 3,
-    title: 'Odmowa przyjęcia przez klienta',
-    code: ErrorCodes['E-03'],
+    title: ErrorCodes[ErrorPackageStatus.REFUSAL],
+    code: ErrorPackageStatus.REFUSAL,
   },
   {
     id: 4,
-    title: 'Odbiorca nie posiada kwoty COD',
-    code: ErrorCodes['E-04'],
+    title: ErrorCodes[ErrorPackageStatus.NO_COD],
+    code: ErrorPackageStatus.NO_COD,
   },
 ]
