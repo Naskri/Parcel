@@ -6,7 +6,6 @@ import { AiOutlineMore } from 'react-icons/ai'
 import { AddressPointMenu } from './AddressPointMenu/AddressPointMenu'
 import { usePackagesContext } from '../../Packages/PackagesContext/PackagesContext'
 import { Addresses, useAddressContext } from '../AddressContext/AddressContext'
-import { useEffect } from 'react'
 
 type AddressPointProps = {
   data: Addresses
@@ -26,15 +25,9 @@ export const AddressPoint = ({
   drag,
 }: AddressPointProps) => {
   const { getAddressPackages } = usePackagesContext()
-  const { isAddressHasCashPackage, reorderAddressPoints, removeAddress } = useAddressContext()
+  const { isAddressHasCashPackage, reorderAddressPoints } = useAddressContext()
   const hasCODPackages = isAddressHasCashPackage(data.custom_id)
   const packages = getAddressPackages(data.custom_id)
-
-  useEffect(() => {
-    if (Number(data.packages) === 0) {
-      removeAddress(data.custom_id)
-    }
-  }, [Number(data.packages)])
 
   const [, ref] = useDrag({
     type: 'ADDRESS_POINT',

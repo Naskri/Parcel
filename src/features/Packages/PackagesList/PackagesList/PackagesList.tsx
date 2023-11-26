@@ -10,7 +10,7 @@ type PackagesListProps = {
 }
 
 export const PackagesList = ({ isWork, search, searchCategory }: PackagesListProps) => {
-  const { addresses, filterAddresses } = useAddressContext()
+  const { workAddresses, filterAddresses } = useAddressContext()
 
   const validSearch = search && searchCategory
 
@@ -20,7 +20,7 @@ export const PackagesList = ({ isWork, search, searchCategory }: PackagesListPro
     setSelectedAddress(id === selectedAddress ? null : id)
   }
 
-  return (!validSearch ? addresses : filterAddresses(search, searchCategory)).map((address) => (
+  return (!validSearch ? workAddresses : filterAddresses(search, searchCategory)).map((address) => (
     <AddressPoint
       key={address.custom_id}
       data={address}

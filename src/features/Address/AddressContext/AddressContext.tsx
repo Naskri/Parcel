@@ -25,6 +25,7 @@ export type Addresses = AddPackagePointSchemaType & AddressSupabaseData & Addres
 
 type AddressContextState = {
   addresses: Addresses[]
+  workAddresses: Addresses[]
   addAddress: (address: Addresses) => void
   getAddress: (id: string | undefined | null) => Addresses | undefined
   reorderAddressPoints: (dragIndex: number, hoverIndex: number) => void
@@ -37,7 +38,7 @@ type AddressContextState = {
   hangOverAddress: (userId: string, addressId: string) => void
   reverseAddresses: () => void
   sortAddresses: (sortCategory: SortPossibility) => Addresses[]
-  updateAddressPackages: (addressID: string) => void
+  updateAddressPackages: (addressID: string, remove?: boolean) => void
 }
 
 export const AddressContext = createContext<AddressContextState | null>(null)
@@ -47,6 +48,7 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
   const { t } = useTranslation()
   const { user } = useUser()
   const addresses = storageAddresses.filter((address) => address.user_id === user?.id)
+  const workAddresses = addresses.filter((address) => Number(address.packages) > 0)
 
   const { getAddressPackages } = usePackagesContext()
 
@@ -160,14 +162,14 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
     return addresses
   }
 
-  const updateAddressPackages = (addressID: string) => {
+  const updateAddressPackages = (addressID: string, remove?: boolean) => {
     const findedAddress = getAddress(addressID)
 
     if (!findedAddress) return
 
     const mappedAddresses = addresses.map((address) =>
       address.custom_id === findedAddress.custom_id
-        ? { ...address, packages: String(Number(address.packages) + 1) }
+        ? { ...address, packages: String(Number(address.packages) + (remove ? -1 : 1)) }
         : address
     )
 
@@ -178,6 +180,7 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
     <AddressContext.Provider
       value={{
         addresses,
+        workAddresses,
         isAddressHasCashPackage,
         filterAddresses,
         addAddress,
