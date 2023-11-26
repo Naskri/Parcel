@@ -183,6 +183,10 @@
     "chart-title": "Doręczenia",
     "additional-rest": "Pozostało",
     "additional-all": "Wszystko",
-    "individual-title": "Statystyki indywidualne"
+    "individual-title": "Statystyki indywidualne",
+    "rest": "Do doręczenia",
+    "delivery": "Doręczone",
+    "not": "Nie doręczone",
+    "handover": "Przekazane do innego kuriera "
   }
 }

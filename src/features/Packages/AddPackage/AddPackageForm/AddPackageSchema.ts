@@ -54,6 +54,8 @@ export const AddPackageSchema = z.object({
     .transform((value) => (isNaN(Number(value)) || value === '0' ? null : value)),
   errorStatus: z.nativeEnum(ErrorPackageStatus).optional().nullable(),
   success: z.boolean().default(false),
+  transfer: z.boolean().default(false),
+  prevID: z.string().default('').nullable(),
 })
 
 export type AddPackageSchemaType = z.infer<typeof AddPackageSchema>

@@ -182,6 +182,10 @@
     "chart-title": "Delivery",
     "additional-rest": "Rest",
     "additional-all": "All",
-    "individual-title": "Individual statistics"
+    "individual-title": "Individual statistics",
+    "rest": "Still to delivery",
+    "delivery": "Delivered",
+    "not": "Not delivered",
+    "handover": "Transferred to another courier "
   }
 }

@@ -16,6 +16,7 @@ type PackagesContextState = {
   getAddressPackages: (addressID: string) => Packages[]
   getAllUserPackages: (userID: string, category?: string) => Packages[]
   removeAddressPackages: (addressID: string) => void
+  hangOverAddressPackages: (userID: string, currentUserID: string, addressID: string) => void
 }
 
 export const PackagesContext = createContext<PackagesContextState | null>(null)
@@ -73,6 +74,14 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
       return allPackages.filter((pack) => pack.success)
     }
 
+    if (category === 'error') {
+      return allPackages.filter((pack) => pack.errorStatus)
+    }
+
+    if (category === 'transfer') {
+      return packages.filter((pack) => pack.prevID === userID)
+    }
+
     return allPackages
   }
 
@@ -80,6 +89,16 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
     const newPackages = packages.filter((pack) => pack.address_id !== addressID)
 
     setPackages(newPackages)
+  }
+
+  const hangOverAddressPackages = (userID: string, currentUserID: string, addressID: string) => {
+    const mappedPackages = packages.map((pack) =>
+      pack.address_id === addressID
+        ? { ...pack, prevID: currentUserID, user_id: userID, transfer: true }
+        : pack
+    )
+
+    setPackages(mappedPackages)
   }
 
   return (
@@ -93,6 +112,7 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
         getAddressPackages,
         getAllUserPackages,
         removeAddressPackages,
+        hangOverAddressPackages,
       }}
     >
       {children}

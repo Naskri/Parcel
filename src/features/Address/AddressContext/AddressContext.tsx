@@ -63,7 +63,7 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
   const getAddress = (id: string | undefined | null) => {
     if (!id) return
 
-    const existAddress = addresses.find((findAddress) => findAddress.custom_id === id)
+    const existAddress = storageAddresses.find((findAddress) => findAddress.custom_id === id)
 
     if (!existAddress) return
     return existAddress

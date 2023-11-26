@@ -15,13 +15,17 @@ import {
 import { InputContainer, InputTypes } from '../../UI/InputContainer/InputContainer'
 import { Button } from '../../UI/Button/Button'
 import { useTranslation } from 'react-i18next'
+import { usePackagesContext } from '../../Packages/PackagesContext/PackagesContext'
+import { useUser } from '../../Authentication/useUser'
 
 export const HandOverAddressForm = () => {
   const { hangOverAddress } = useAddressContext()
+  const { hangOverAddressPackages } = usePackagesContext()
   const [searchParams] = useSearchParams()
   const [error, setError] = useState('')
   const navigate = useNavigate()
   const { t } = useTranslation()
+  const { user } = useUser()
   const address = searchParams.get('address')
 
   const {
@@ -37,13 +41,16 @@ export const HandOverAddressForm = () => {
     try {
       setError('')
 
-      const user = await getUserByEmail(data.email)
+      const userToTransform = await getUserByEmail(data.email)
 
-      if (!user) {
+      if (!userToTransform) {
         return setError(t('send.user-invalid'))
       }
 
-      hangOverAddress(user, data.address)
+      if (!user) return
+
+      hangOverAddressPackages(userToTransform, user.id, data.address)
+      hangOverAddress(userToTransform, data.address)
       navigate('/dashboard')
     } catch (err) {
       if (err instanceof Error) {

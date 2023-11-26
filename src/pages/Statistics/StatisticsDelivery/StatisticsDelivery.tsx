@@ -5,6 +5,7 @@ import styled from './../Statistics.module.css'
 import { useUser } from '../../../features/Authentication/useUser'
 import { Spinner } from '../../../features/UI/Spinner/Spinner'
 import { useTranslation } from 'react-i18next'
+import { StatisticsList } from '../../../features/Packages/PackagesStatistics/StatisticsList/StatisticsList'
 
 export const StatisticsDelivery = () => {
   const [searchParams] = useSearchParams()
@@ -18,9 +19,8 @@ export const StatisticsDelivery = () => {
       <Navigation title={t('statistics.individual-title')} />
       <div className={styled.statistics__delivery}>
         {!user && <Spinner />}
-        {!category || !user ? null : (
-          <IndividualPackagesStatistics category={category} id={user.id} />
-        )}
+        {user && !category && <StatisticsList id={user.id} />}
+        {category && user && <IndividualPackagesStatistics category={category} id={user.id} />}
       </div>
     </>
   )
