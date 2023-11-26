@@ -139,6 +139,21 @@
     "packages": "Packages"
   },
   "package": {
-    "add": "Add package to address"
+    "add": "Add package to address",
+    "more-on": "Hide",
+    "more-off": "Show more",
+    "data": "Delivery details",
+    "name": "Name and surname:",
+    "company": "Company name:",
+    "address": "Address:",
+    "phone": "Phone:",
+    "title": "Package",
+    "packNumber": "Package number:",
+    "weight": "Weight:",
+    "height": "Height:",
+    "length": "Length:",
+    "width": "Width:",
+    "cash": "Cash",
+    "delivery": "Delivery"
   }
 }

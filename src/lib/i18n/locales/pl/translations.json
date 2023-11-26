@@ -140,6 +140,21 @@
     "packages": "Paczki"
   },
   "package": {
-    "add": "Dodaj paczkę do adresu"
+    "add": "Dodaj paczkę do adresu",
+    "more-on": "Ukryj",
+    "more-off": "Pokaż więcej",
+    "data": "Dane doręczenia",
+    "name": "Imię i nazwisko:",
+    "company": "Nazwa firmy:",
+    "address": "Adres:",
+    "phone": "Telefon",
+    "title": "Paczka",
+    "packNumber": "Numer paczki",
+    "weight": "Waga",
+    "height": "Wysokość",
+    "length": "Długość",
+    "width": "Szerokość",
+    "cash": "Pobranie",
+    "delivery": "Doręczaj"
   }
 }

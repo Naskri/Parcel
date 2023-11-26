@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { Button } from '../../UI/Button/Button'
-import { Addresses, Packages } from '../PackagesContext/PackagesContext'
+import { Packages } from '../PackagesContext/PackagesContext'
 import styled from './PackageItem.module.css'
 import { PackageItemSummary } from './PackageItemSummary/PackageItemSummary'
+import { Addresses } from '../../Address/AddressContext/AddressContext'
+import { useTranslation } from 'react-i18next'
 
 type PackageItemProps = {
   address: Addresses
@@ -12,11 +14,15 @@ type PackageItemProps = {
 
 export const PackageItem = ({ address, pack, delivery }: PackageItemProps) => {
   const [isShowingMore, setIsShowingMore] = useState(false)
+  const { t } = useTranslation()
+
   return (
     <div className={`${styled.container} ${delivery && styled['container--delivery']}`}>
       <div className={styled.informations}>
         <div>
-          <strong>{address.name}</strong>
+          <strong>
+            {address?.street} {address.name}
+          </strong>
           <p>
             {address.zipCode} {address.city}
           </p>
@@ -27,7 +33,7 @@ export const PackageItem = ({ address, pack, delivery }: PackageItemProps) => {
       </div>
       {!delivery && (
         <Button onClick={() => setIsShowingMore((prev) => !prev)} modifier="summary">
-          {isShowingMore ? 'Hide' : 'Show more'}
+          {isShowingMore ? t('package.more-on') : t('package.more-off')}
         </Button>
       )}
       {pack && isShowingMore && <PackageItemSummary address={address} pack={pack} />}

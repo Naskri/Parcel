@@ -1,5 +1,7 @@
+import { useTranslation } from 'react-i18next'
+import { Addresses } from '../../../Address/AddressContext/AddressContext'
 import { CustomLink } from '../../../UI/CustomLink/CustomLink'
-import { Addresses, Packages } from '../../PackagesContext/PackagesContext'
+import { Packages } from '../../PackagesContext/PackagesContext'
 import styled from './PackageItemSummary.module.css'
 
 type PackageItemSummaryProps = {
@@ -8,60 +10,62 @@ type PackageItemSummaryProps = {
 }
 
 export const PackageItemSummary = ({ address, pack }: PackageItemSummaryProps) => {
+  const { t } = useTranslation()
+
   return (
     <div className={styled.summary}>
-      <h2>Dane doręczenia</h2>
+      <h2>{t('package.data')}</h2>
       <p className={styled.name}>
-        Imię i nazwisko:
+        {t('package.name')}
         <strong>{address.customer}</strong>
       </p>
       <p className={styled.name}>
-        Nazwa firmy:
+        {t('package.company')}
         <strong>{address.customer}</strong>
       </p>
       <p className={styled.name}>
-        Adres:
+        {t('package.address')}
         <strong>{address.name},</strong>
         <strong>
           {address.city}, {address.zipCode}
         </strong>
       </p>
       <p className={styled.name}>
-        Telefon:
+        {t('package.phone')}
         <strong>{address.phone}</strong>
       </p>
-      <h2>Paczka</h2>
+      <h2>{t('package.title')}</h2>
       <p className={styled.name}>
-        Numer paczki:
+        {t('package.address')}
         <strong>{pack.package_id}</strong>
       </p>
       <div className={styled.pack}>
         <p className={styled.name}>
-          Waga:
+          {t('package.weight')}
           <strong>{pack.weight}kg</strong>
         </p>
         <p className={styled.name}>
-          Wysokość:
+          {t('package.height')}
           <strong>{pack.height}cm</strong>
         </p>
         <p className={styled.name}>
-          Długość:
+          {t('package.length')}
           <strong>{pack.length}cm</strong>
         </p>
         <p className={styled.name}>
-          Szerokość:
+          {t('package.width')}
           <strong>{pack.width}cm</strong>
         </p>
       </div>
       {pack.cash && (
         <p className={styled.name}>
-          Pobranie:
+          {t('package.cash')}
           <strong>{pack.cash}zł</strong>
         </p>
       )}
       <div className={styled.action}>
         <CustomLink path={`delivery?pack=${pack.package_id}`} modifier="primary">
-          Doręczaj
+          {t('package.delivery')}
         </CustomLink>
       </div>
     </div>
