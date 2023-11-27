@@ -92,9 +92,11 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
   }
 
   const filterAddresses = (search: string, searchCategory: keyof Omit<Addresses, 'position'>) => {
-    const filtered = addresses.filter(
-      (address) => address[searchCategory]?.toLowerCase().includes(search.toLowerCase())
-    )
+    const filtered = addresses.filter((address) => {
+      if (typeof address[searchCategory] !== 'string') return
+
+      address[searchCategory].toLowerCase().includes(search.toLowerCase())
+    })
 
     return filtered
   }
