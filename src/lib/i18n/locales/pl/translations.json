@@ -66,7 +66,7 @@
     "packageLengthRequired": "Długość jest wymagana.",
     "packageWeightRequired": "Waga jest wymagana.",
     "packNumberRequired": "Numer paczki jest wymagany.",
-    "packNumberMinLengthInvalid": "Numer paczki musi mieć minimum 18 znaków.",
+    "packNumberMinLengthInvalid": "Numer paczki musi mieć minimum 10 znaków.",
     "packNumberMaxLengthInvalid": "Numer paczki musi mieć maksymalnie 26 znaków.",
     "packStartsWithInvalid": "Numer paczki musi się zaczynać od prefiksu 0.",
     "badCustomer": "Dane się różnią od danych odbiorcy.",

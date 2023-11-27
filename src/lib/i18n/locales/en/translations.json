@@ -69,7 +69,7 @@
     "packageWeightRequired": "Weight is required.",
     "maxPackageWeigth": "Maximum 31.5 kg",
     "packNumberRequired": "Pack number is required.",
-    "packNumberMinLengthInvalid": "Pack number must have minimum 18 characters.",
+    "packNumberMinLengthInvalid": "Pack number must have minimum 10 characters.",
     "packNumberMaxLengthInvalid": "Pack number must have maximum 26 characters.",
     "packStartsWithInvalid": "Pack number must start with 0. prefix",
     "badCustomer": "The data is different from the recipient's data.",

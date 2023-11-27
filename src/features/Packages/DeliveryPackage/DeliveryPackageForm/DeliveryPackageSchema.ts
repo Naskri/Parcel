@@ -3,7 +3,7 @@ import z from 'zod'
 export const DeliveryPackageFormSchema = z.object({
   pack: z
     .string({ required_error: 'validation.packNumberRequired' })
-    .min(18, 'validation.packNumberMinLengthInvalid')
+    .min(10, 'validation.packNumberMinLengthInvalid')
     .max(26, 'validation.packNumberMaxLengthInvalid')
     .startsWith('0.', 'validation.packStartsWithInvalid'),
 })

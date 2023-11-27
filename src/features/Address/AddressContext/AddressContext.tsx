@@ -39,6 +39,7 @@ type AddressContextState = {
   reverseAddresses: () => void
   sortAddresses: (sortCategory: SortPossibility) => Addresses[]
   updateAddressPackages: (addressID: string, remove?: boolean) => void
+  removeAllUserAddresses: (userID: string) => void
 }
 
 export const AddressContext = createContext<AddressContextState | null>(null)
@@ -176,6 +177,12 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
     setAddresses(mappedAddresses)
   }
 
+  const removeAllUserAddresses = (userID: string) => {
+    const newAddresses = addresses.filter((address) => address.user_id !== userID)
+
+    setAddresses(newAddresses)
+  }
+
   return (
     <AddressContext.Provider
       value={{
@@ -191,6 +198,7 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
         reverseAddresses,
         sortAddresses,
         updateAddressPackages,
+        removeAllUserAddresses,
       }}
     >
       {children}

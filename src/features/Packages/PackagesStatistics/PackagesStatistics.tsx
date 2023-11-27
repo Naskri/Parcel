@@ -22,7 +22,8 @@ export const PackagesStatistics = ({ id }: PackagesStatisticsProps) => {
   const CODsum = succesfullyCODPackages.reduce((acc, next) => (acc += Number(next.cash)), 0)
 
   const formatDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
-  const percentage = (succesfullyDeliveredPackages.length / allPackages.length) * 100 || 0
+  const percentage =
+    Math.round((succesfullyDeliveredPackages.length / allPackages.length) * 100) || 0
 
   return (
     <div>
