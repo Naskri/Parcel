@@ -1,4 +1,3 @@
-import { t } from 'i18next'
 import z from 'zod'
 import { ErrorPackageStatus } from '../../DeliveryPackage/DeliveryNotSuccesfulScreen/DeliveryNotSuccesfulList/DeliveryNotSuccesfulListData'
 
@@ -15,7 +14,7 @@ export const AddPackageSchema = z.object({
       message: 'validation.packageNumberInvalid',
     })
     .refine((value) => Number(value) <= MAX_PACKAGE_WIDTH, {
-      message: `${t('validation.maxPackageWidth', { width: MAX_PACKAGE_WIDTH })}`,
+      message: 'validation.maxPackageWidth',
     }),
   height: z
     .string({ required_error: 'validation.packageHeightRequired' })
@@ -24,7 +23,7 @@ export const AddPackageSchema = z.object({
       message: 'validation.packageNumberInvalid',
     })
     .refine((value) => Number(value) <= MAX_PACKAGE_HEIGHT, {
-      message: `${t('validation.maxPackageHeight', { height: MAX_PACKAGE_HEIGHT })}`,
+      message: 'validation.maxPackageHeight',
     }),
   length: z
     .string({ required_error: 'validation.packageLengthRequired' })
@@ -33,7 +32,7 @@ export const AddPackageSchema = z.object({
       message: 'validation.packageNumberInvalid',
     })
     .refine((value) => Number(value) <= MAX_PACKAGE_LENGTH, {
-      message: `${t('validation.maxPackageLength', { length: MAX_PACKAGE_LENGTH })}`,
+      message: 'validation.maxPackageLength',
     }),
   weight: z
     .string({ required_error: 'validation.packageWeightRequired' })
@@ -42,16 +41,22 @@ export const AddPackageSchema = z.object({
       message: 'validation.packageNumberInvalid',
     })
     .refine((value) => Number(value) <= MAX_PACKAGE_WEIGHT, {
-      message: `${t('validation.maxPackageWeigth', { weight: MAX_PACKAGE_WEIGHT })}`,
+      message: 'validation.maxPackageWeigth',
     }),
   cash: z
     .string()
     .nullable()
-    .refine((value) => !isNaN(Number(value)) || value === '0', {
-      message: 'validation.packageNumberInvalid',
-    })
+    .default('0')
+    .refine(
+      (value) => {
+        if (!isNaN(Number(value))) return true
+      },
+      {
+        message: 'validation.packageNumberInvalid',
+      }
+    )
 
-    .transform((value) => (isNaN(Number(value)) || value === '0' ? null : value)),
+    .transform((value) => (value?.startsWith('0') ? Number(value) : value)),
   errorStatus: z.nativeEnum(ErrorPackageStatus).optional().nullable(),
   success: z.boolean().default(false),
   transfer: z.boolean().default(false),

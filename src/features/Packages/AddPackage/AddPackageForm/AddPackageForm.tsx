@@ -26,7 +26,7 @@ export const AddPackageForm = ({ id }: AddPackageFormProps) => {
     reset,
   } = useForm<AddPackageSchemaType>({
     resolver: zodResolver(AddPackageSchema),
-    defaultValues: { cash: '0' },
+    defaultValues: { cash: '' },
   })
 
   const submitHandler = (data: AddPackageSchemaType) => {
