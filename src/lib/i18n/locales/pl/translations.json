@@ -72,7 +72,9 @@
     "packNumberRequired": "Numer paczki jest wymagany.",
     "packNumberMinLengthInvalid": "Numer paczki musi mieć minimum 18 znaków.",
     "packNumberMaxLengthInvalid": "Numer paczki musi mieć maksymalnie 26 znaków.",
-    "packStartsWithInvalid": "Numer paczki musi się zaczynać od prefiksu 0."
+    "packStartsWithInvalid": "Numer paczki musi się zaczynać od prefiksu 0.",
+    "badCustomer": "Dane się różnią od danych odbiorcy.",
+    "badSignature": "Podpis jest wymagany."
   },
   "success": {
     "register": "Potwierdź konto na email!",
@@ -176,7 +178,11 @@
     "errorAbsent": "Odbiorca nieobecny",
     "errorWrongAddress": "Błędny adres",
     "errorRefusal": "Odmowa przyjęcia przez klienta",
-    "errorNoCOD": "Odbiorca nie posiada kwoty COD"
+    "errorNoCOD": "Odbiorca nie posiada kwoty COD",
+    "choicePrivate": "Odbiorca prywatny",
+    "choiceOther": "Odbiorca pośredni",
+    "recipient": "Odbiorca",
+    "signature-title": "Podpisałem odbiór paczki nieuszkodzonej."
   },
   "statistics": {
     "title": "Statystyki",

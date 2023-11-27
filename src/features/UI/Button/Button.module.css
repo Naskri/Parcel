@@ -135,3 +135,20 @@
 .button--navigation:hover span {
   transform: translateX(1rem);
 }
+
+.button--choice-private,
+.button--choice-other {
+  width: 100%;
+  padding: 0.5rem;
+  color: var(--color-white);
+  border-radius: 4px;
+}
+
+.button--choice-private {
+  background-color: var(--color-primary);
+}
+
+.button--choice-other {
+  background-color: var(--color-navigation-background);
+  color: var(--color-black);
+}

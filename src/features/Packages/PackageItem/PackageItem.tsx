@@ -18,6 +18,8 @@ export const PackageItem = ({ address, pack, delivery, statistic, transfer }: Pa
   const [isShowingMore, setIsShowingMore] = useState(false)
   const { t } = useTranslation()
 
+  const isShouldShowMoreContent = !delivery || transfer !== undefined
+
   return (
     <div className={`${styled.container} ${delivery && styled['container--delivery']}`}>
       <div className={styled.informations}>
@@ -33,12 +35,11 @@ export const PackageItem = ({ address, pack, delivery, statistic, transfer }: Pa
         </div>
         <p className={styled.data}>{pack?.package_id}</p>
       </div>
-      {!delivery ||
-        (!transfer && (
-          <Button onClick={() => setIsShowingMore((prev) => !prev)} modifier="summary">
-            {isShowingMore ? t('package.more-on') : t('package.more-off')}
-          </Button>
-        ))}
+      {isShouldShowMoreContent && (
+        <Button onClick={() => setIsShowingMore((prev) => !prev)} modifier="summary">
+          {isShowingMore ? t('package.more-on') : t('package.more-off')}
+        </Button>
+      )}
       {pack && isShowingMore && (
         <PackageItemSummary address={address} pack={pack} statistic={statistic} />
       )}

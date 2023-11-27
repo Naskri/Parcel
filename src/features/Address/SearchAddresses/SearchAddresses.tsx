@@ -8,7 +8,7 @@ import { Addresses } from '../AddressContext/AddressContext'
 export const SearchAddresses = () => {
   const [search, setSearch] = useState('')
   const [searchParams] = useSearchParams()
-  const [selectedOption, setSelectedOption] = useState<keyof Addresses>('name')
+  const [selectedOption, setSelectedOption] = useState<keyof Omit<Addresses, 'position'>>('name')
 
   const query = searchParams.get('query')
 
@@ -19,7 +19,7 @@ export const SearchAddresses = () => {
   }, [query])
 
   const setNewOption = (ev: ChangeEvent<HTMLSelectElement>) => {
-    const option = ev.target.value as keyof Addresses
+    const option = ev.target.value as keyof Omit<Addresses, 'position'>
 
     setSelectedOption(option)
   }

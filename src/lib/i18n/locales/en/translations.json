@@ -71,7 +71,9 @@
     "packNumberRequired": "Pack number is required.",
     "packNumberMinLengthInvalid": "Pack number must have minimum 18 characters.",
     "packNumberMaxLengthInvalid": "Pack number must have maximum 26 characters.",
-    "packStartsWithInvalid": "Pack number must start with 0. prefix"
+    "packStartsWithInvalid": "Pack number must start with 0. prefix",
+    "badCustomer": "The data is different from the recipient's data.",
+    "badSignature": "Signature is required."
   },
   "success": {
     "register": "Confirm account on email!",
@@ -175,7 +177,11 @@
     "errorAbsent": "Recipient absent",
     "errorWrongAddress": "Wrong address",
     "errorRefusal": "Customer's refusal to accept",
-    "errorNoCOD": "The recipient does not have the COD amount"
+    "errorNoCOD": "The recipient does not have the COD amount",
+    "choicePrivate": "Private recipient",
+    "choiceOther": "Indirect recipient",
+    "recipient": "Recipient",
+    "signature-title": "I signed for the receipt of the undamaged parcel."
   },
   "statistics": {
     "title": "Statistics",

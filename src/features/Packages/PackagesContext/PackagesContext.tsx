@@ -17,6 +17,7 @@ type PackagesContextState = {
   getAllUserPackages: (userID: string, category?: string) => Packages[]
   removeAddressPackages: (addressID: string) => void
   hangOverAddressPackages: (userID: string, currentUserID: string, addressID: string) => void
+  deliveryPackage: (packageID: string) => void
 }
 
 export const PackagesContext = createContext<PackagesContextState | null>(null)
@@ -101,12 +102,20 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
     setPackages(mappedPackages)
   }
 
+  const deliveryPackage = (packageID: string) => {
+    const mappedPackages = packages.map((pack) =>
+      pack.package_id === packageID ? { ...pack, success: true } : pack
+    )
+    setPackages(mappedPackages)
+  }
+
   return (
     <PackagesContext.Provider
       value={{
         date,
         packages,
         addPackage,
+        deliveryPackage,
         getPackageByID,
         setPackageErrorStatus,
         getAddressPackages,
