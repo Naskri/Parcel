@@ -31,7 +31,7 @@ export const AddPackagePointSchema = z.object({
     .refine(validator.isMobilePhone, {
       message: 'validation.addressPhoneInvalid',
     }),
-  packages: z.number().default(0),
+  packages: z.string().default('0'),
 })
 
 export type AddPackagePointSchemaType = z.infer<typeof AddPackagePointSchema>
