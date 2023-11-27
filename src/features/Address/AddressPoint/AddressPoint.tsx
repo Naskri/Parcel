@@ -29,7 +29,7 @@ export const AddressPoint = ({
   const hasCODPackages = isAddressHasCashPackage(data.custom_id)
   const packages = getAddressPackages(data.custom_id)
 
-  const [, ref] = useDrag({
+  const [, ref] = useDrag<any>({
     type: 'ADDRESS_POINT',
     item: {
       type: 'ADDRESS_POINT',
@@ -38,6 +38,7 @@ export const AddressPoint = ({
   })
 
   const [, drop] = useDrop({
+    //@ts-ignore
     type: 'ADDRESS_POINT',
     accept: 'ADDRESS_POINT',
     hover: (draggedItem: { index: number }) => {
@@ -52,7 +53,7 @@ export const AddressPoint = ({
 
   return (
     <div
-      ref={index ? (node) => ref(drop(node)) : null}
+      ref={index !== undefined ? (node) => ref(drop(node)) : null}
       className={`${styled.address} ${drag && styled['address--drag']}`}
     >
       <div className={styled.address__customer}>
