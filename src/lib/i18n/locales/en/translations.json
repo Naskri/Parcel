@@ -73,13 +73,19 @@
     "packNumberMaxLengthInvalid": "Pack number must have maximum 26 characters.",
     "packStartsWithInvalid": "Pack number must start with 0. prefix",
     "badCustomer": "The data is different from the recipient's data.",
-    "badSignature": "Signature is required."
+    "badSignature": "Signature is required.",
+    "haveWorkYet": "You didn't deliver all the parcels.",
+    "endWorkToday": "You've finished your work today."
   },
   "success": {
     "register": "Confirm account on email!",
     "login": "Succesfully logged",
     "dashboard": "Correct, use the app",
-    "pin": "PIN is changed"
+    "pin": "PIN is changed",
+    "doneWork": "Work completed.",
+    "startWork": "Work started.",
+    "deleteAddress": "Succesfully deleted address.",
+    "addPackage": "Succesfully added package."
   },
   "navigation": {
     "item1title": "Search",

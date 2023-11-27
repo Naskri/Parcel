@@ -74,13 +74,19 @@
     "maxPackageWidth": "Maximum 150 cm",
     "maxPackageHeight": "Maximum 75 cm",
     "maxPackageLength": "Maximum 75 cm",
-    "maxPackageWeigth": "Maximum 31.5 kg"
+    "maxPackageWeigth": "Maximum 31.5 kg",
+    "haveWorkYet": "Nie rozwiozłeś wszystkich paczek.",
+    "endWorkToday": "Dzisiaj już zakończyłeś pracę."
   },
   "success": {
     "register": "Potwierdź konto na email!",
     "login": "Pomyślnie zalogowano",
     "dashboard": "Pomyślnie, korzystaj z aplikacji",
-    "pin": "Zmieniono PIN"
+    "pin": "Zmieniono PIN",
+    "doneWork": "Zakończono pracę.",
+    "startWork": "Zaczęto pracę.",
+    "deleteAddress": "Pomyślnie usunięto adres.",
+    "addPackage": "Pomyśnie dodano paczkę."
   },
   "navigation": {
     "item1title": "Wyszukiwarka",

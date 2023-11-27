@@ -4,6 +4,7 @@ import { PackageSupabaseData } from '../AddPackage/AddPackageForm/services/useAd
 import { useLocalStorage } from 'usehooks-ts'
 import { toast } from 'react-toastify'
 import { ErrorPackageStatus } from '../DeliveryPackage/DeliveryNotSuccesfulScreen/DeliveryNotSuccesfulList/DeliveryNotSuccesfulListData'
+import { useTranslation } from 'react-i18next'
 
 export type Packages = AddPackageSchemaType & PackageSupabaseData
 
@@ -26,9 +27,11 @@ export const PackagesContextProvider = ({ children }: { children: ReactNode }) =
   const [packages, setPackages] = useLocalStorage<Packages[]>('packages', [])
   const [date] = useState(new Date())
 
+  const { t } = useTranslation()
+
   const addPackage = (newPackage: Packages) => {
     setPackages((prev) => [...prev, newPackage])
-    toast.success('Succesfully added package')
+    toast.success(t('success.addPackage'))
   }
 
   const getPackageByID = (packID: string) => {

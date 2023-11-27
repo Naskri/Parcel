@@ -6,11 +6,13 @@ import { useUser } from '../../features/Authentication/useUser'
 import { useStartWork } from '../../features/Account/Work/useStartWork'
 import { useEndWork } from '../../features/Account/Work/useEndWork'
 import { ButtonBack } from '../../features/UI/Button/ButtonBack/ButtonBack'
+import { useAddressContext } from '../../features/Address/AddressContext/AddressContext'
 
 export const Time = () => {
+  const { workAddresses } = useAddressContext()
   const { t } = useTranslation()
   const { startWork } = useStartWork()
-  const { endWork } = useEndWork()
+  const { endWork } = useEndWork(workAddresses)
   const { user } = useUser()
 
   const meta = user?.user_metadata

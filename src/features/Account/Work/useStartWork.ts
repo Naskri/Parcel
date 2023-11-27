@@ -3,11 +3,14 @@ import { startWorkTime } from './apiService'
 import { toast } from 'react-toastify'
 import { useUser } from '../../Authentication/useUser'
 import { useNavigate } from 'react-router'
+import { useTranslation } from 'react-i18next'
+import { Errors } from '../../UI/InputContainer/InputContainer.types'
 
 export const useStartWork = () => {
   const queryClient = useQueryClient()
   const { user } = useUser()
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   const { mutate: startWork } = useMutation({
     mutationFn: () =>
@@ -15,13 +18,13 @@ export const useStartWork = () => {
         end_work: user?.user_metadata.end_work,
       }),
     onSuccess: () => {
-      toast.success('Zaczęto prace')
+      toast.success(t('success.startWork'))
       navigate('..')
       queryClient.invalidateQueries({ queryKey: ['user'] })
     },
     onError: (error) => {
       if (error instanceof Error) {
-        toast.error(error.message)
+        toast.error(t(error.message as Errors))
       }
     },
   })

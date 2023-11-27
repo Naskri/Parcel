@@ -80,7 +80,7 @@ export const AddressContextProvider = ({ children }: { children: ReactNode }) =>
     const newAddresses = addresses.filter((address) => address.custom_id !== addressID)
 
     setAddresses(newAddresses)
-    toast.success('Succesfuly deleted address')
+    toast.success(t('success.deleteAddress'))
   }
 
   const isAddressHasCashPackage = (addressID: string) => {
